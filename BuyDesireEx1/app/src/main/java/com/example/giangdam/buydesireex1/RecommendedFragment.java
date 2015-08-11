@@ -77,7 +77,10 @@ public class RecommendedFragment extends android.support.v4.app.Fragment {
         return  view;
     }
 
+    public void onResume(){
+        super.onResume();
 
+    }
 
 
     private void initTabHost() {

@@ -18,8 +18,8 @@ import java.util.ArrayList;
  */
 public class MerchantFragment extends android.support.v4.app.Fragment {
 
-    ViewPager viewPager ;
-    TabHost tabHost;
+    ViewPager viewpagerMerchant ;
+    TabHost tabHostMerchant;
     HorizontalScrollView horizontalScrollView;
 
 
@@ -28,8 +28,8 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.merchants_fragment,container,false);
 
-        viewPager = (ViewPager)view.findViewById(R.id.viewpagerMerchant);
-        tabHost = (TabHost)view.findViewById(R.id.tabHostMerchant);
+        viewpagerMerchant = (ViewPager)view.findViewById(R.id.viewpagerMerchant);
+        tabHostMerchant = (TabHost)view.findViewById(R.id.tabHostMerchant);
         horizontalScrollView = (HorizontalScrollView)view.findViewById(R.id.scrollView);
 
 
@@ -38,8 +38,8 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
 
 
 
-        for(int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
-            View v = tabHost.getTabWidget().getChildAt(i);
+        for(int i = 0; i < tabHostMerchant.getTabWidget().getChildCount(); i++) {
+            View v = tabHostMerchant.getTabWidget().getChildAt(i);
 
             // Look for the title view to ensure this is an indicator and not a divider.
             TextView tv = (TextView)v.findViewById(android.R.id.title);
@@ -52,7 +52,7 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
 
 
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewpagerMerchant.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -61,7 +61,7 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
             @Override
             public void onPageSelected(int position) {
 
-                tabHost.setCurrentTab(position);
+                tabHostMerchant.setCurrentTab(position);
                 //tabHost.getTabWidget().getChildTabViewAt(position).setBackgroundColor(Color.RED);
             }
 
@@ -71,13 +71,13 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
             }
         });
 
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+        tabHostMerchant.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                int selectedPage = tabHost.getCurrentTab();
-                viewPager.setCurrentItem(selectedPage);
+                int selectedPage = tabHostMerchant.getCurrentTab();
+                viewpagerMerchant.setCurrentItem(selectedPage);
 
-                View tabView = tabHost.getCurrentTabView();
+                View tabView = tabHostMerchant.getCurrentTabView();
                 int scrollPostion = tabView.getLeft() - (horizontalScrollView.getWidth() - tabView.getWidth()) / 2;
                 horizontalScrollView.smoothScrollTo(scrollPostion, 0);
                 
@@ -90,15 +90,15 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
 
 
     private void initTabHost() {
-        tabHost.setup();
+        tabHostMerchant.setup();
 
         String[] tabNames = {"Map","List", "Directory"};
         for(int i = 0 ; i< tabNames.length; i++){
             TabHost.TabSpec tabSpec;
-            tabSpec = tabHost.newTabSpec(tabNames[i]);
+            tabSpec = tabHostMerchant.newTabSpec(tabNames[i]);
             tabSpec.setIndicator(tabNames[i]);
             tabSpec.setContent(new FakeContent(getActivity().getApplicationContext()));
-            tabHost.addTab(tabSpec);
+            tabHostMerchant.addTab(tabSpec);
         }
     }
 
@@ -131,7 +131,7 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
 
 
         PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(),fragments);
-        viewPager.setAdapter(pagerAdapter);
+        viewpagerMerchant.setAdapter(pagerAdapter);
 
     }
 }

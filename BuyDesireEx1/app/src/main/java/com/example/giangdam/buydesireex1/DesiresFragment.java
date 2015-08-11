@@ -31,8 +31,10 @@ public class DesiresFragment extends android.support.v4.app.Fragment {
         tabHost = (TabHost)view.findViewById(R.id.tabHostDesire);
         horizontalScrollView = (HorizontalScrollView)view.findViewById(R.id.scrollView);
 
-        initTabHost();;
+
+        initTabHost();
         initViewPager();
+
 
 
 

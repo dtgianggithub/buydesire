@@ -30,6 +30,21 @@
         <item>Contacts</item>
     </string-array>
 
+
+    <string-array name="merchants_list">
+        <item>Roll-Royce VN 1</item>
+        <item>Roll-Royce VN 2</item>
+        <item>Roll-Royce VN 3</item>
+        <item>Roll-Royce VN 4</item>
+        <item>Roll-Royce VN 5</item>
+        <item>Roll-Royce VN 6</item>
+        <item>Roll-Royce VN 7</item>
+        <item>Roll-Royce VN 8</item>
+        <item>Roll-Royce VN 9</item>
+        <item>Roll-Royce VN 10</item>
+    </string-array>
+
+
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Open</string>
 

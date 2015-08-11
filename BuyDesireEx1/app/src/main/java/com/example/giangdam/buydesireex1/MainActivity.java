@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
