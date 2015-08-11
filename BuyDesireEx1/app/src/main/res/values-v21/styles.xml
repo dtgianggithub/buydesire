@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="AppTheme.Base">
+       <item name="android:colorPrimary">@color/primary_dark_material_light</item>
+        <item name="colorPrimaryDark">@color/accent_material_dark</item>
+        <item name="android:colorAccent">@color/accent_material_light</item>
+    </style>
+
+    <style name="TabText">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+
+
+</resources>

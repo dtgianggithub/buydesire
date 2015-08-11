@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="260dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="left|start"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:id="@+id/leftdrawer"
+
+    >
+
+    <!-- login -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="vertical"
+        android:background="@color/yellow"
+        ></LinearLayout>
+
+    <!-- action search -->
+    <LinearLayout
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp"
+        android:id="@+id/search_skeleton"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_search_black_18dp"
+            android:layout_marginLeft="15dp"
+            />
+
+        <EditText
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSearch"
+            android:hint="Search"
+            android:singleLine="true"
+            android:focusable="true"
+            android:drawableBottom="@android:color/transparent"
+            android:fadingEdge="vertical"
+            android:imeOptions="actionSearch"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/color_cursor"
+
+            />
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_settings_voice_black_18dp"
+
+            />
+
+    </LinearLayout>
+
+
+    <!-- list menu -->
+
+    <ListView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvMenu"
+        android:divider="@color/white"
+        android:scrollbars="none"
+        android:drawSelectorOnTop="false"
+        android:background="@color/gray"
+        android:listSelector="@color/focuseblue"
+        />
+
+
+
+</LinearLayout>
+

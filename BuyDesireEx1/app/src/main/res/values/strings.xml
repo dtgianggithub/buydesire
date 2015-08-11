@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">BuyDesire</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFCC00</color>
+    <color name="gray">#ECECEC</color>
+    <color name="focuseblue">#BFCAE6</color>
+    <color name="black" >#000000</color>
+
+    <string-array name="memulist">
+        <item>Add</item>
+        <item>Desires</item>
+        <item>Recommended</item>
+        <item>Gifts</item>
+        <item>Merchants</item>
+        <item>Find Friends</item>
+        <item>Invite Friends</item>
+        <item>Shopping Bag</item>
+        <item>Help</item>
+        <item>Settings</item>
+
+    </string-array>
+
+    <string-array name="addfriendlist">
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Google+</item>
+        <item>Contacts</item>
+    </string-array>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Open</string>
+
+</resources>

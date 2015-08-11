@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Add new friends using"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/lvAddNewFriendsUsing"
+            ></ListView>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Similar to you"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            >
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+                <TextView
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+
+                    android:text="Alecia Leach"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="+ Follow"
+                    android:background="@drawable/button_follow"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="40dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Alecia Leach"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="+ Follow"
+                    android:background="@drawable/button_follow"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Alecia Leach"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="+ Follow"
+                    android:background="@drawable/button_follow"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Alecia Leach"
+                    />
+                <Button
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="+ Follow"
+                    android:background="@drawable/button_follow"
+                    android:layout_marginRight="10dp"
+                    />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                >
+
+                <ImageView
+
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Alecia Leach"
+                    />
+                <Button
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="+ Follow"
+                    android:background="@drawable/button_follow"
+                    android:layout_marginRight="10dp"
+                    />
+            </TableRow>
+
+
+        </TableLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="7dp"
+                android:background="@drawable/ic_desiredetail_seemore"
+                />
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See more"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+

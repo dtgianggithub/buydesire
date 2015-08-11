@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    >
+
+    <include android:id="@+id/recommended_friends_banner"
+        layout="@layout/recommended_fragment_friends_banner"
+        />
+
+
+
+    <GridView
+        android:background="@color/focuseblue"
+        android:id="@+id/productgrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        ></GridView>
+</LinearLayout>
