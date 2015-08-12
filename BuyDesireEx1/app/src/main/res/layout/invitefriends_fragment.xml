@@ -1,12 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="This is Invite page"
-        />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Invitations"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="$0.00"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/yellow"
+                android:textSize="35sp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/lblTotalEarned"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total earned credits"
+                android:id="@+id/lbldecriptionsforearned"
+                android:layout_below="@+id/lblTotalEarned"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblSignedup"
+                android:text="Signed up"
+                android:layout_below="@+id/lbldecriptionsforearned"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblNoPerson"
+                android:text="No. of persons"
+                android:layout_below="@+id/lbldecriptionsforearned"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <SeekBar
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekbar"
+                android:layout_below="@+id/lblSignedup"
+                android:layout_marginTop="5dp"
+                />
+
+            <LinearLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                android:layout_below="@+id/seekbar"
+                android:id="@+id/levelseekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    />
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_below="@+id/levelseekbar"
+                android:id="@+id/lbl1fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 Friend............$10 Credit"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:layout_below="@+id/lbl1fr"
+                android:id="@+id/lbl5fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 Friend............$50 Credit"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_below="@+id/lbl5fr"
+                android:id="@+id/lbl10fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 Friend............$100 Credit"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_below="@+id/lbl10fr"
+                android:id="@+id/lbl20fr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 Friend............$200 Credit"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment1"
+                android:layout_below="@id/lbl20fr"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="If a friend accepts your invitation and makes a"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment2"
+                android:layout_below="@+id/comment1"
+                android:layout_centerHorizontal="true"
+                android:text="purchase within 60 days, you will earn a $10 bonus"
+                />
+
+            <TextView
+                android:layout_below="@+id/comment2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment3"
+                android:layout_centerHorizontal="true"
+                android:text="credit to spend on BuyDesire"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblLink"
+                android:layout_below="@+id/comment3"
+                android:text="Your invite link"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:id="@+id/lblDirectLink"
+                android:layout_below="@+id/lblLink"
+                android:text="http://www.buydesire.com//invite/J2VKK3"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblCopyClipboard"
+                android:layout_below="@+id/lblDirectLink"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/yellow"
+                android:text="Tab to copy to clipboard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                />
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Add new friends using"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/lvAddNewFriendsUsing"
+            ></ListView>
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+

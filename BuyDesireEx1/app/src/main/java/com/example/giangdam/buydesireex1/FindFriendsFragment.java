@@ -19,6 +19,12 @@ public class FindFriendsFragment extends android.support.v4.app.Fragment {
     ArrayList<String> arrayListAddFriend;//array list string list menu
     ListView lvAddNewFriendsUsing; //listview contain menu list
 
+
+    String[] string_recommendations;
+    MyRecommendationsAdapter myRecommendationsAdapter ;  // custom adapter
+    ArrayList<String> arrayListRecommendation;//array list string list menu
+    ListView lvRecommendations; //listview contain menu list
+
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +36,17 @@ public class FindFriendsFragment extends android.support.v4.app.Fragment {
         myAddFriendsUsingAdapter = new MyAddFriendsUsingAdapter(getActivity(),R.layout.custom_list_addnewfriends,arrayListAddFriend);
         lvAddNewFriendsUsing = (ListView)view.findViewById(R.id.lvAddNewFriendsUsing);
         lvAddNewFriendsUsing.setAdapter(myAddFriendsUsingAdapter);
+
+
+        arrayListRecommendation = new ArrayList<String>();
+        string_recommendations = getResources().getStringArray(R.array.recommedations);
+        Collections.addAll(arrayListRecommendation, string_recommendations); // replace for for() or foreach
+        myRecommendationsAdapter = new MyRecommendationsAdapter(getActivity(),R.layout.custom_list_recommendations,arrayListRecommendation);
+        lvRecommendations = (ListView)view.findViewById(R.id.lvRecommendations);
+        lvRecommendations.setAdapter(myRecommendationsAdapter);
+
+
+
 
         return  view;
     }

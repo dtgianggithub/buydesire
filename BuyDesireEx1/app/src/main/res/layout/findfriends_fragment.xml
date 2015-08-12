@@ -248,6 +248,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/gray"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -271,6 +272,31 @@
                 />
 
         </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Recommendations"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:id="@+id/lvRecommendations"
+            ></ListView>
 
 
     </LinearLayout>

@@ -48,4 +48,68 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Open</string>
 
+    <string-array name="tabhostdirectory">
+        <item>#</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+
+    <string-array name="listcompanyname">
+        <item>A Company</item>
+        <item>B Company</item>
+        <item>C Company</item>
+        <item>D Company</item>
+        <item>E Company</item>
+        <item>F Company</item>
+        <item>G Company</item>
+        <item>H Company</item>
+        <item>I Company</item>
+        <item>J Company</item>
+        <item>K Company</item>
+        <item>L Company</item>
+        <item>M Company</item>
+        <item>N Company</item>
+        <item>O Company</item>
+        <item>P Company</item>
+        <item>Q Company</item>
+        <item>R Company</item>
+        <item>S Company</item>
+        <item>T Company</item>
+        <item>U Company</item>
+        <item>V Company</item>
+        <item>W Company</item>
+        <item>X Company</item>
+        <item>Y Company</item>
+        <item>Z Company</item>
+    </string-array>
+
+    <string-array name="recommedations">
+        <item>Suffested for you to follow</item>
+        <item>Popular users</item>
+    </string-array>
+
 </resources>

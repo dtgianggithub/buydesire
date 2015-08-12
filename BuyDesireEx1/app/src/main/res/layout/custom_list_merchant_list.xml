@@ -61,7 +61,7 @@
 
         <Button
             android:layout_width="90dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:id="@+id/btnViewStore"
             android:text="View"
             android:layout_alignParentRight="true"
