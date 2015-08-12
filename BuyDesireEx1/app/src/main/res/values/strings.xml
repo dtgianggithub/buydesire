@@ -112,4 +112,25 @@
         <item>Popular users</item>
     </string-array>
 
+    <string-array name="listhelp">
+        <item>About</item>
+        <item>Terms &amp; Policies</item>
+        <item>FAQs</item>
+        <item>Contact information</item>
+    </string-array>
+
+    <string-array name="listsetting">
+        <item>Edit profile</item>
+        <item>Shipping &amp; Billing</item>
+        <item>Payments</item>
+        <item>Notifications</item>
+        <item>Privacy</item>
+        <item>Location Services</item>
+        <item>Languages</item>
+        <item>Logout</item>
+    </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="facebook_app_id">1580345865545540</string>
+
 </resources>

@@ -2,19 +2,39 @@ package com.example.giangdam.buydesireex1;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.giangdam.model.User;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -41,13 +61,38 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //DesiresFragment desiresFragment;
+    ImageView imgprofilepicture;
+    TextView lblusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        imgprofilepicture = (ImageView)findViewById(R.id.imgprofilepicture);
+        lblusername = (TextView)findViewById(R.id.lblusername);
+
+        GraphRequest request = GraphRequest.newMeRequest(
+                LoginActivity.accessToken,
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(
+                            JSONObject object,
+                            GraphResponse response) {
+                        // Application code
+                        User user = new Gson().fromJson(String.valueOf(object),User.class);
+                        if(user != null){
+                            lblusername.setText(user.getName());
+                            new viewImageUrl(imgprofilepicture).execute(user.getPicture().getData().getUrl());
+                        }
+
+
+                    }
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id,name,link,picture");
+        request.setParameters(parameters);
+        request.executeAsync();
 
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
@@ -213,5 +258,49 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
 
+    }
+
+
+
+    private class viewImageUrl extends AsyncTask<String, Void, Bitmap> {
+
+        ImageView bmImage;
+
+        public viewImageUrl(ImageView bmImage){
+            this.bmImage = bmImage;
+        }
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+
+            String urlDisplay = params[0];
+            Bitmap bitmap = null;
+            try {
+                InputStream inputStream = new URL(urlDisplay).openStream();
+                bitmap = BitmapFactory.decodeStream(inputStream);
+            } catch (IOException e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }catch (RuntimeException e){
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            Bitmap circleBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+
+            BitmapShader shader = new BitmapShader (bitmap,  Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            Paint paint = new Paint();
+            paint.setShader(shader);
+
+            Canvas c = new Canvas(circleBitmap);
+            c.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
+
+
+            bmImage.setImageBitmap(circleBitmap);
+        }
     }
 }

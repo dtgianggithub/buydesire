@@ -12,12 +12,64 @@
 
     <!-- login -->
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:orientation="vertical"
         android:background="@color/yellow"
-        ></LinearLayout>
+        >
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/imgprofilepicture"
+            android:layout_marginTop="20dp"
+            />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblusername"
+            android:layout_below="@+id/imgprofilepicture"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgnotification"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_leftmenu_notification"
+            />
+
+
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imgnotificationpopup"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_leftmenu_notification_popup"
+            />
+        <TextView
+            android:gravity="center"
+            android:text="0"
+            android:layout_marginTop="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/lblnotificationcount"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            />
+
+
+
+    </RelativeLayout>
 
     <!-- action search -->
     <LinearLayout

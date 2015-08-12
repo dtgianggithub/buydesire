@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    >
 
 
+    <ImageView
+       android:layout_gravity="center_horizontal"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/ic_shopping_bag_big"/>
     <TextView
+       android:textSize="16sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is ShoppingBag page"
+        android:text="You don't curently have any items in your"
         />
+
+    <TextView
+        android:textSize="16sp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="shopping bag"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/yellow"
+        android:text="Discover disires"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnDiscoverDesire"
+        />
+
 
 </LinearLayout>
