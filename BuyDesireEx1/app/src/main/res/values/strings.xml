@@ -133,4 +133,12 @@
 
     <string name="facebook_app_id">1580345865545540</string>
 
+
+    <!-- Twitter Configurations -->
+    <string name="twitter_callback">http://javatechig.android.app</string>
+    <string name="twitter_consumer_key"> 12cecIEZAldeAqPEQhBQh3MGq</string>
+    <string name="twitter_consumer_secret"> KTrYJBtzraJ7AbE6xICjuKThQxAjfedN0cijdCuAgVNThbcLJR</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <!-- End Configurations -->
+
 </resources>

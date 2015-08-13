@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgprofilepicture;
     TextView lblusername;
+    Bitmap bitmaptwitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,27 +73,35 @@ public class MainActivity extends AppCompatActivity {
         imgprofilepicture = (ImageView)findViewById(R.id.imgprofilepicture);
         lblusername = (TextView)findViewById(R.id.lblusername);
 
-        GraphRequest request = GraphRequest.newMeRequest(
-                LoginActivity.accessToken,
-                new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(
-                            JSONObject object,
-                            GraphResponse response) {
-                        // Application code
-                        User user = new Gson().fromJson(String.valueOf(object),User.class);
-                        if(user != null){
-                            lblusername.setText(user.getName());
-                            new viewImageUrl(imgprofilepicture).execute(user.getPicture().getData().getUrl());
+        if(LoginActivity.typeLogin == 1){
+            GraphRequest request = GraphRequest.newMeRequest(
+                    LoginActivity.accessToken,
+                    new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(
+                                JSONObject object,
+                                GraphResponse response) {
+                            // Application code
+                            User user = new Gson().fromJson(String.valueOf(object),User.class);
+                            if(user != null){
+                                lblusername.setText(user.getName());
+                                new viewImageUrl(imgprofilepicture).execute(user.getPicture().getData().getUrl());
+                            }
+
+
                         }
+                    });
+            Bundle parameters = new Bundle();
+            parameters.putString("fields", "id,name,link,picture");
+            request.setParameters(parameters);
+            request.executeAsync();
+        }
+
+        if(LoginActivity.typeLogin == 2){
+            new LoadProfileTwitter().execute();
+        }
 
 
-                    }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,link,picture");
-        request.setParameters(parameters);
-        request.executeAsync();
 
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
@@ -291,7 +300,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
             Bitmap circleBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-
             BitmapShader shader = new BitmapShader (bitmap,  Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
             Paint paint = new Paint();
             paint.setShader(shader);
@@ -301,6 +309,32 @@ public class MainActivity extends AppCompatActivity {
 
 
             bmImage.setImageBitmap(circleBitmap);
+        }
+    }
+
+
+    private class LoadProfileTwitter extends AsyncTask<String, String, Bitmap> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        protected Bitmap doInBackground(String... args) {
+            try {
+                bitmaptwitter = BitmapFactory.decodeStream((InputStream) new URL(LoginActivity.pref.getString("IMAGE_URL", "")).getContent());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bitmaptwitter;
+        }
+        protected void onPostExecute(Bitmap image) {
+            Bitmap image_circle = Bitmap.createBitmap(bitmaptwitter.getWidth(), bitmaptwitter.getHeight(), Bitmap.Config.ARGB_8888);
+            BitmapShader shader = new BitmapShader (bitmaptwitter,  Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            Paint paint = new Paint();
+            paint.setShader(shader);
+            Canvas c = new Canvas(image_circle);
+            c.drawCircle(image.getWidth() / 2, image.getHeight() / 2, image.getWidth() / 2, paint);
+            imgprofilepicture.setImageBitmap(image_circle);
+            lblusername.setText(LoginActivity.pref.getString("NAME", ""));
         }
     }
 }
