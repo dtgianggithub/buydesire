@@ -1,6 +1,7 @@
 package com.example.giangdam.buydesireex1;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,7 +45,6 @@ public class SettingsFragment extends android.support.v4.app.Fragment {
                 switch (position) {
                     case 7:
                         doLogout();
-
                         break;
                     default:
                         break;
@@ -67,9 +67,18 @@ public class SettingsFragment extends android.support.v4.app.Fragment {
                     LoginActivity.accessToken.setCurrentAccessToken(null);
                 }
                 if (LoginActivity.typeLogin == 2) {
+                    LoginActivity.pref = getActivity().getSharedPreferences(LoginActivity.TWITTER_SHAREPRE, Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = LoginActivity.pref.edit();
                     edit.putString("ACCESS_TOKEN", "");
                     edit.apply();
+                }
+
+                if (LoginActivity.typeLogin == 3) {
+                    LoginActivity.pref = getActivity().getSharedPreferences(LoginActivity.GOOGLEPLUS_SHAREPRE, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = LoginActivity.pref.edit();
+                    edit.putString("SESSION_ID", "");
+                    edit.apply();
+
                 }
 
                 Intent intent = new Intent(getActivity(), LoginActivity.class);

@@ -101,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
             new LoadProfileTwitter().execute();
         }
 
+        if(LoginActivity.typeLogin == 3){
+            new LoadProfileGooglePlus().execute();
+
+        }
+
 
 
 
@@ -312,8 +317,43 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class LoadProfileGooglePlus extends AsyncTask<String, String, Bitmap> {
+
+        LoadProfileGooglePlus(){
+            LoginActivity.pref = getSharedPreferences(LoginActivity.GOOGLEPLUS_SHAREPRE,MODE_PRIVATE);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        protected Bitmap doInBackground(String... args) {
+            try {
+                bitmaptwitter = BitmapFactory.decodeStream((InputStream) new URL(LoginActivity.pref.getString("URLIMG_GOOGLEPLUS", "")).getContent());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bitmaptwitter;
+        }
+        protected void onPostExecute(Bitmap image) {
+            Bitmap image_circle = Bitmap.createBitmap(bitmaptwitter.getWidth(), bitmaptwitter.getHeight(), Bitmap.Config.ARGB_8888);
+            BitmapShader shader = new BitmapShader (bitmaptwitter,  Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            Paint paint = new Paint();
+            paint.setShader(shader);
+            Canvas c = new Canvas(image_circle);
+            c.drawCircle(image.getWidth() / 2, image.getHeight() / 2, image.getWidth() / 2, paint);
+            imgprofilepicture.setImageBitmap(image_circle);
+            lblusername.setText(LoginActivity.pref.getString("PERSONNAME_GOOGLEPLUS", ""));
+        }
+    }
+
 
     private class LoadProfileTwitter extends AsyncTask<String, String, Bitmap> {
+
+       LoadProfileTwitter(){
+           LoginActivity.pref = getSharedPreferences(LoginActivity.TWITTER_SHAREPRE,MODE_PRIVATE);
+       }
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

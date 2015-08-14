@@ -3,6 +3,7 @@ package com.example.giangdam.buydesireex1;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -26,6 +28,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.model.people.Person;
 
 import java.util.Arrays;
 
@@ -70,17 +74,19 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
     private static final int RC_SIGN_IN = 0;
 
     /* Client used to interact with Google APIs. */
-    private GoogleApiClient googleApiClient;
+    public static GoogleApiClient googleApiClient;
 
     /* A flag indicating that a PendingIntent is in progress and prevents
      * us from starting further intents.
      */
     private boolean mIntentInProgress;
+    Button btn_login_googleplus;
+    public static final String GOOGLEPLUS_SHAREPRE = "mygoogleplussharepreference";
+    public static Person currentPerson;
 
 
 
-
-
+    TextView lblSignUp, lblSignIn;
 
 
 
@@ -98,19 +104,11 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
 
         //DECLARE FOR GOOGLE PLUS
-        /*
-        googleApiClient = new GoogleApiClient.Builder(LoginActivity.this)
-                .addConnectionCallbacks((GoogleApiClient.ConnectionCallbacks) LoginActivity.this)
-                .addOnConnectionFailedListener((GoogleApiClient.OnConnectionFailedListener) LoginActivity.this)
-                .addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addScope(Plus.SCOPE_PLUS_PROFILE)
-                .build();
-                */
 
 
         //SETTING ACTIVITY LAYOUT FILE
         setContentView(R.layout.activity_login);
+
 
         //CHECK TYPE API WITH ACCESS TOKEN
         accessToken = AccessToken.getCurrentAccessToken();
@@ -118,6 +116,16 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
         pref = getSharedPreferences(TWITTER_SHAREPRE, MODE_PRIVATE);
         String _accesstokentwitter = pref.getString("ACCESS_TOKEN", "");
+
+        pref = getSharedPreferences(GOOGLEPLUS_SHAREPRE, MODE_PRIVATE);
+        String _sessionId = pref.getString("SESSION_ID", "");
+
+        if( !_sessionId.equals("")){
+            typeLogin = 3;
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         if( !_accesstokentwitter.equals("")){
             typeLogin = 2;
@@ -136,6 +144,10 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
 
 
+
+        btn_login_googleplus = (Button)findViewById(R.id.btn_login_googleplus);
+        btn_login_googleplus.setOnClickListener(new LoginGooglePlus());
+
         btn_login_twitter = (Button)findViewById(R.id.btn_login_twitter);
         twitter = new TwitterFactory().getInstance();
         twitter.setOAuthConsumer("12cecIEZAldeAqPEQhBQh3MGq", "KTrYJBtzraJ7AbE6xICjuKThQxAjfedN0cijdCuAgVNThbcLJR");
@@ -153,48 +165,98 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
                 startActivity(intent);
                 finish();
             }
+
             @Override
             public void onCancel() {
 
             }
+
             @Override
             public void onError(FacebookException e) {
 
             }
         });
+
+
+
+
+        lblSignIn = (TextView) findViewById(R.id.lblSignIn);
+        lblSignUp = (TextView) findViewById(R.id.lblSignUp);
+
+        lblSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignIn.class);
+                startActivity(intent);
+            }
+        });
+
+        lblSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    /*
-    protected void onStart() {
-        super.onStart();
-        googleApiClient.connect();
-    }
 
-    protected void onStop() {
-        super.onStop();
-        if (googleApiClient.isConnected()) {
-            googleApiClient.disconnect();
+    public class LoginGooglePlus implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+
+            googleApiClient = new GoogleApiClient.Builder(LoginActivity.this)
+                    .addConnectionCallbacks((GoogleApiClient.ConnectionCallbacks) LoginActivity.this)
+                    .addOnConnectionFailedListener((GoogleApiClient.OnConnectionFailedListener) LoginActivity.this)
+                    .addApi(Plus.API)
+                    .addScope(Plus.SCOPE_PLUS_LOGIN)
+                    .addScope(Plus.SCOPE_PLUS_PROFILE)
+                    .build();
+
+            googleApiClient.connect();
         }
-
     }
-    */
+
 
     @Override
     public void onConnected(Bundle bundle) {
         // We've resolved any connection errors.  mGoogleApiClient can be used to
-        // access Google APIs on behalf of the user.
+        //access Google APIs on behalf of the user.
+        typeLogin = 3;
+        String personName ="";
+        String urlImg = "";
+        if (Plus.PeopleApi.getCurrentPerson(googleApiClient) != null) {
+            currentPerson = Plus.PeopleApi.getCurrentPerson(googleApiClient);
+            personName = currentPerson.getDisplayName();
+            urlImg = currentPerson.getImage().getUrl();
+            Person.Image personPhoto = currentPerson.getImage();
+            String personGooglePlusProfile = currentPerson.getUrl();
+        }
+        pref = getSharedPreferences(GOOGLEPLUS_SHAREPRE,MODE_PRIVATE);
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putString("SESSION_ID", String.valueOf(googleApiClient.getSessionId()));
+        edit.putString("PERSONNAME_GOOGLEPLUS",personName);
+        edit.putString("URLIMG_GOOGLEPLUS", urlImg);
+        edit.apply();
 
+
+
+
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-        //googleApiClient.connect();
+        googleApiClient.connect();
 
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        /*
+
         if (!mIntentInProgress && connectionResult.hasResolution()) {
             try {
                 mIntentInProgress = true;
@@ -207,7 +269,7 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
                 googleApiClient.connect();
             }
         }
-        */
+
 
     }
 
@@ -299,6 +361,7 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
             try {
                 accessTokenTwitter = twitter.getOAuthAccessToken(requestToken, oauth_verifier);
+                pref = getSharedPreferences(TWITTER_SHAREPRE,MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("ACCESS_TOKEN", accessTokenTwitter.getToken());
                 edit.putString("ACCESS_TOKEN_SECRET", accessTokenTwitter.getTokenSecret());
@@ -332,19 +395,17 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
 
-        /*
-        if (requestCode == RC_SIGN_IN) {
-            mIntentInProgress = false;
+        if(typeLogin == 3){
+            if (requestCode == RC_SIGN_IN) {
+                mIntentInProgress = false;
 
-            if (!googleApiClient.isConnecting()) {
-                googleApiClient.connect();
+                if (!googleApiClient.isConnecting()) {
+                    googleApiClient.connect();
+                }
             }
         }
-        */
+
+
 
     }
-
-
-
-
 }

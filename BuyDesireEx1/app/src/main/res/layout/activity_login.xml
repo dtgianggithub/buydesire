@@ -1,62 +1,174 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.giangdam.buydesireex1.LoginActivity"
     android:background="@drawable/bg_login"
-    >
-
-    <ImageView
-        android:id="@+id/img_login_logo"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/ic_login_logo"
-        />
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_below="@id/img_login_logo"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        >
+        <ImageView
+
+            android:id="@+id/img_login_logo"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_login_logo"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        >
+
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textSize="20sp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             />
+
+        <TableLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/pre_twitter_button"
+                    />
+
+                <Button
+                    android:gravity="center"
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_login_twitter"
+                    android:background="#32DEF4"
+                    android:text="TWITTER"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="10dp"
+                    />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/googleplusicon"
+                    />
+
+                <Button
+                    android:gravity="center"
+                    android:layout_height="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_login_googleplus"
+                    android:background="#D54035"
+                    android:text="GOOGLE"
+                    android:textColor="#fff" />
+            </TableRow>
+
+        </TableLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/pre_twitter_button"
-            />
-
-        <Button
+        <LinearLayout
             android:gravity="center"
-            android:layout_height="50dp"
-            android:layout_width="0dp"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:id="@+id/btn_login_twitter"
-            android:background="#32DEF4"
-            android:text="Login to Twitter"
-            android:textColor="#fff" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get Started"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:id="@+id/lblSignUp"
+                />
+
+            <TextView
+
+                android:layout_height="wrap_content"
+                android:text="Create BuyDesire Account"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="150dp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            />
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:id="@+id/lblSignIn"
+                />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Existing BuyDesire Account"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 
 
 
-</RelativeLayout>
+
+
+</LinearLayout>

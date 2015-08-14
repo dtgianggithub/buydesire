@@ -139,6 +139,8 @@
     <string name="twitter_consumer_key"> 12cecIEZAldeAqPEQhBQh3MGq</string>
     <string name="twitter_consumer_secret"> KTrYJBtzraJ7AbE6xICjuKThQxAjfedN0cijdCuAgVNThbcLJR</string>
     <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="title_activity_sign_in">SignIn</string>
+    <string name="title_activity_sign_up">SignUp</string>
     <!-- End Configurations -->
 
 </resources>
