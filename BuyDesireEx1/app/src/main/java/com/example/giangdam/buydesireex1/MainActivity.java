@@ -29,6 +29,13 @@ import com.example.giangdam.model.User;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.google.gson.Gson;
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import org.json.JSONObject;
 
@@ -68,10 +75,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //UNIVERSAL IMAGE LOADER SETUP
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheOnDisk(true)
+                .cacheInMemory(true).imageScaleType(ImageScaleType.EXACTLY).displayer(new FadeInBitmapDisplayer(300)).build();
+
+        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .defaultDisplayImageOptions(defaultOptions).memoryCache(new WeakMemoryCache()).diskCacheSize(100*1024*1024).build();
+
+        ImageLoader.getInstance().init(configuration);
+
         setContentView(R.layout.activity_main);
+
+
+
 
         imgprofilepicture = (ImageView)findViewById(R.id.imgprofilepicture);
         lblusername = (TextView)findViewById(R.id.lblusername);
+
+        //ImageLoader for avater
+        final ImageLoader imageLoaderAvartar = ImageLoader.getInstance();
+        final DisplayImageOptions imageOptionsAvartar = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
+                .displayer(new RoundedBitmapDisplayer(1000))
+                .resetViewBeforeLoading(true).build();
 
         if(LoginActivity.typeLogin == 1){
             GraphRequest request = GraphRequest.newMeRequest(
@@ -85,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
                             User user = new Gson().fromJson(String.valueOf(object),User.class);
                             if(user != null){
                                 lblusername.setText(user.getName());
-                                new viewImageUrl(imgprofilepicture).execute(user.getPicture().getData().getUrl());
+                                //new viewImageUrl(imgprofilepicture).execute(user.getPicture().getData().getUrl());
+                                imageLoaderAvartar.displayImage(user.getPicture().getData().getUrl(),imgprofilepicture, imageOptionsAvartar);
                             }
 
 
@@ -98,11 +126,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(LoginActivity.typeLogin == 2){
-            new LoadProfileTwitter().execute();
+            LoginActivity.pref = getSharedPreferences(LoginActivity.TWITTER_SHAREPRE,MODE_PRIVATE);
+            lblusername.setText(LoginActivity.pref.getString("NAME", ""));
+            imageLoaderAvartar.displayImage(LoginActivity.pref.getString("IMAGE_URL", ""),imgprofilepicture, imageOptionsAvartar);
+            //new LoadProfileTwitter().execute();
         }
 
         if(LoginActivity.typeLogin == 3){
-            new LoadProfileGooglePlus().execute();
+            //new LoadProfileGooglePlus().execute();
+            LoginActivity.pref = getSharedPreferences(LoginActivity.GOOGLEPLUS_SHAREPRE,MODE_PRIVATE);
+            lblusername.setText(LoginActivity.pref.getString("PERSONNAME_GOOGLEPLUS", ""));
+            imageLoaderAvartar.displayImage(LoginActivity.pref.getString("URLIMG_GOOGLEPLUS", ""),imgprofilepicture, imageOptionsAvartar);
 
         }
 

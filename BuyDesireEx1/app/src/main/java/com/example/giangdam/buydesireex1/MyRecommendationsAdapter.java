@@ -72,9 +72,6 @@ public class MyRecommendationsAdapter extends BaseAdapter {
         }
 
         viewHolder.txtrecommendations.setText(arrayList.get(position));
-
-
-
         return  convertView;
     }
 

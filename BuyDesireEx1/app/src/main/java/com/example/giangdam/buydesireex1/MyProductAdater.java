@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.giangdam.model.ProductDesire;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,6 +63,8 @@ public class MyProductAdater extends BaseAdapter {
         public TextView txtDesiresCount;
         public ImageButton imgbtnLocal;
         public ImageButton imgbtnShoppingBag;
+        public ImageLoader imageLoader;
+        public DisplayImageOptions imageOptions;
     }
 
     @Override
@@ -77,6 +81,10 @@ public class MyProductAdater extends BaseAdapter {
             viewHolder.imgbtnDesires = (ImageButton)convertView.findViewById(R.id.imgbtnDesires);
             viewHolder.imgbtnLocal = (ImageButton)convertView.findViewById(R.id.imgbtnLocal);
             viewHolder.imgbtnShoppingBag = (ImageButton)convertView.findViewById(R.id.imgbtnShoppingBag);
+
+            viewHolder.imageLoader = ImageLoader.getInstance();
+            viewHolder.imageOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
+                    .resetViewBeforeLoading(true).build();
             convertView.setTag(viewHolder);
         }
         else{
@@ -88,7 +96,8 @@ public class MyProductAdater extends BaseAdapter {
         viewHolder.txtDesiresCount.setText(String.valueOf(arrayList.get(position).getDesiresCount()));
 
         //set Image Product
-        new viewImageUrl(viewHolder.imgProductImage).execute(arrayList.get(position).getProductImage());
+        //new viewImageUrl(viewHolder.imgProductImage).execute(arrayList.get(position).getProductImage());
+        viewHolder.imageLoader.displayImage(arrayList.get(position).getProductImage(),viewHolder.imgProductImage, viewHolder.imageOptions);
         return  convertView;
     }
 

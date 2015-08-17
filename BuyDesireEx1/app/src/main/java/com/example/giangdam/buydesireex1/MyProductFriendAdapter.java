@@ -12,6 +12,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.example.giangdam.model.ProductDesire;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,6 +57,9 @@ public class MyProductFriendAdapter extends BaseAdapter {
     public static class ViewHolder{
         public ImageView imgProductImage;
 
+        public ImageLoader imageLoader;
+        public DisplayImageOptions imageOptions;
+
     }
 
     @Override
@@ -68,6 +73,10 @@ public class MyProductFriendAdapter extends BaseAdapter {
 
             viewHolder.imgProductImage = (ImageView)convertView.findViewById(R.id.imgProductImage);
 
+            viewHolder.imageLoader = ImageLoader.getInstance();
+            viewHolder.imageOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true)
+                    .resetViewBeforeLoading(true).build();
+
             convertView.setTag(viewHolder);
         }
         else{
@@ -76,7 +85,8 @@ public class MyProductFriendAdapter extends BaseAdapter {
 
 
         //set Image Product
-        new viewImageUrl(viewHolder.imgProductImage).execute(arrayList.get(position).getProductImage());
+        //new viewImageUrl(viewHolder.imgProductImage).execute(arrayList.get(position).getProductImage());
+        viewHolder.imageLoader.displayImage(arrayList.get(position).getProductImage(),viewHolder.imgProductImage, viewHolder.imageOptions);
         return  convertView;
     }
 
