@@ -143,4 +143,7 @@
     <string name="title_activity_sign_up">SignUp</string>
     <!-- End Configurations -->
 
+
+    <string name="API">http://dev.m.api.buydesire.com</string>
+
 </resources>

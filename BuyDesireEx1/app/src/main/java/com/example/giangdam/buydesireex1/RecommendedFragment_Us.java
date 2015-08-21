@@ -1,27 +1,24 @@
 package com.example.giangdam.buydesireex1;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.giangdam.model.CacheManager;
-import com.example.giangdam.model.MyJsonReader;
-import com.example.giangdam.model.Product;
-import com.example.giangdam.model.ProductDesire;
-import com.google.gson.Gson;
+import com.example.giangdam.retrofitadapter.RetrofitProductAdater;
+import com.example.giangdam.retrofitmodel.Desire;
+import com.example.giangdam.retrofitmodel.ProductBound;
+import com.example.giangdam.retrofitservice.BuyDesireService;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by Giang.Dam on 8/5/2015.
@@ -29,7 +26,18 @@ import java.util.ArrayList;
 public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
 
     ListView lvRecommendUs;
+    String API = "";
 
+    RestAdapter restAdapter;
+    BuyDesireService buyDesireService ;
+    String request = "";
+    int pageSize = 10;
+    int pageIndex = 0;
+
+    ArrayList<Desire> productDesireList;
+    RetrofitProductAdater myProductAdater;
+
+    /*
     String JsonLink = "http://dev.m.api.buydesire.com/api/Tablet/Desires/GetDesires?request={%22DeviceID%22:%22android_id%22,%22ProductCatalogueID%22:0,%22AppVersion%22:%224.6%22,%22pageSize%22:10,%22MobilePlatform%22:1,%22UserID%22:1661,%22DeviceType%22:1,%22CreditCard%22:0,%22DeviceAPID%22:%220ea4696f-9a3a-4214-9dab-bf3618f91561%22,%22SortCriteria%22:0,%22Filter%22:0,%22CountryCode%22:%22VN%22,%22PageIndex%22:0,%22CachedDataVersion%22:-1}";
     ArrayList<ProductDesire> productDesireList;
     MyProductAdater myProductAdater;
@@ -41,6 +49,8 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
 
     JsonSearchThread task;
 
+    */
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,
@@ -49,7 +59,7 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
 
         lvRecommendUs = (ListView) view.findViewById(R.id.lvRecommendUs);
 
-
+        /*
         //data from Json server
         productDesireList = new ArrayList<>();
         myProductAdater = new MyProductAdater(getActivity().getApplicationContext(),R.layout.custom_list_recommend_us,productDesireList);
@@ -57,11 +67,72 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
 
         solveCache();
 
+        */
+
+        //data from Json server
+        productDesireList = new ArrayList<>();
+        myProductAdater = new RetrofitProductAdater(getActivity().getApplicationContext(),R.layout.custom_list_recommend_us,productDesireList);
+        lvRecommendUs.setAdapter(myProductAdater);
+
+
+        API = getActivity().getResources().getString(R.string.API);
+
+        restAdapter = new RestAdapter.Builder()
+                .setEndpoint(API).build();
+
+        buyDesireService = restAdapter.create(BuyDesireService.class);
+        request = createRequest(0, pageSize, 1661, "VN", pageIndex);
+
+        doRequest();
+
+
+        lvRecommendUs.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem + visibleItemCount >= pageSize) {
+                    pageSize = pageSize + 10;
+                    request = createRequest(0, pageSize, 1661, "VN", pageIndex);
+                    doRequest();
+                }
+            }
+        });
 
         return  view;
     }
 
 
+
+    public void doRequest(){
+        buyDesireService.getDesires(request, new Callback<ProductBound>() {
+            @Override
+            public void success(ProductBound productBound, Response response) {
+                productDesireList.clear();
+                for (Desire desire : productBound.getDesires()) {
+                    productDesireList.add(desire);
+                }
+                myProductAdater.notifyDataSetChanged();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+
+    public String createRequest(int productcataloueId,int pageSize, int userId,  String countryCode, int pageIndex){
+        return "{\"DeviceID\":\"android_id\",\"ProductCatalogueID\":"+productcataloueId +",\"AppVersion\":\"4.6\",\"pageSize\":"+pageSize+",\"MobilePlatform\":1,\"UserID\":"+userId+",\"DeviceType\":1,\"CreditCard\":0,\"DeviceAPID\":\"0ea4696f-9a3a-4214-9dab-bf3618f91561\",\"SortCriteria\":0,\"Filter\":0,\"CountryCode\":\""+countryCode+"\",\"PageIndex\":"+pageIndex+",\"CachedDataVersion\":-1}";
+    }
+
+
+    /*
     public void solveCache(){
         task = new JsonSearchThread();
         isCache = false;
@@ -96,6 +167,9 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
 
     }
 
+*/
+
+    /*
 
     public void onPause() {
         super.onPause();
@@ -103,10 +177,18 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
             task.cancel(true);
     }
 
+    */
+
+    /*
+
     public void onResume(){
         super.onResume();
         solveCache();
     }
+
+    */
+
+    /*
 
     private  class JsonSearchThread  extends AsyncTask<String, ProductDesire, JSONObject> {
 
@@ -163,5 +245,7 @@ public class RecommendedFragment_Us extends android.support.v4.app.Fragment {
         }
 
     }
+
+    */
 
 }

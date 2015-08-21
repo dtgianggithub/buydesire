@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class ProductDesire {
 
+
     @SerializedName("ProductName")
     public String ProductName;
 
@@ -73,4 +74,9 @@ public class ProductDesire {
     public void setDesiresCount(int desiresCount) {
         DesiresCount = desiresCount;
     }
+
+
+
+
+
 }
