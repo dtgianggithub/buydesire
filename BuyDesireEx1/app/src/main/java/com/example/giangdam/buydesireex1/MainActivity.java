@@ -28,6 +28,7 @@ import android.widget.TextView;
 import com.example.giangdam.model.User;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.google.android.gms.maps.MapFragment;
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -232,7 +233,14 @@ public class MainActivity extends AppCompatActivity {
                         */
                         break;
                     case 4:
+
                         MerchantFragment merchantFragment = new MerchantFragment();
+                        if (MerchantFragment_Map.googleMap != null) {
+                            MerchantFragment_Map.googleMap = ((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
+                            getFragmentManager().beginTransaction()
+                                    .remove(getFragmentManager().findFragmentById(R.id.map)).commit();
+                            MerchantFragment_Map.googleMap = null;
+                        }
                         fragmentTransaction.replace(R.id.container,merchantFragment);
                         fragmentTransaction.commit();
                         break;
@@ -301,7 +309,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-
+        switch (item.getItemId()){
+            case R.id.ic_menu_more:
+                //do something here
+                Intent intent = new Intent(MainActivity.this,MenuMoreActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
 
         return super.onOptionsItemSelected(item);
 

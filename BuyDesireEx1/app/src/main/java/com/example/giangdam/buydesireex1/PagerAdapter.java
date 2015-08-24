@@ -20,7 +20,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     }
 
 
-
     @Override
     public Fragment getItem(int i) {
         return this.fragments.get(i);
@@ -30,9 +29,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return this.fragments.size();
     }
-
-
-
 
 
 

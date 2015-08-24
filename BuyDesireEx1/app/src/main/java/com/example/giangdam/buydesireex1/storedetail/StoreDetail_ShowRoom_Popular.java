@@ -1,19 +1,19 @@
-package com.example.giangdam.buydesireex1;
+package com.example.giangdam.buydesireex1.storedetail;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.giangdam.buydesireex1.R;
 import com.example.giangdam.retrofitmodel.Desire;
 import com.example.giangdam.retrofitmodel.ProductBound;
 import com.example.giangdam.retrofitservice.BuyDesireService;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
@@ -23,15 +23,11 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 /**
- * Created by Giang.Dam on 8/5/2015.
+ * Created by Giang.Dam on 8/21/2015.
  */
-public class MerchantFragment_List extends Fragment {
+public class StoreDetail_ShowRoom_Popular extends Fragment {
 
 
-
-    MyMerchantListAdapter myMerchantListAdapter ;  // custom adapter
-    ArrayList<Desire> arrayListMerchantList;//array list string list menu
-    ListView lvMerchantList; //listview contain menu list
 
 
     String API = "";
@@ -43,28 +39,19 @@ public class MerchantFragment_List extends Fragment {
     int pageIndex = 0;
 
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater,  ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.merchants_fragment_list,container,false);
+    GridView productgrid;
+    ArrayList<Desire> productDesireList;
+    MyStoreDetailShowroomAdapter myProductAdater;
 
 
-        arrayListMerchantList = new ArrayList<Desire>();
-        myMerchantListAdapter = new MyMerchantListAdapter(getActivity(),R.layout.custom_list_merchant_list,arrayListMerchantList);
-        lvMerchantList = (ListView)view.findViewById(R.id.lvMerchantList);
-        lvMerchantList.setAdapter(myMerchantListAdapter);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.store_detail_fragment_showroom_popular, container, false);
+        productgrid = (GridView)view.findViewById(R.id.productgrid);
 
-        lvMerchantList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //MerchantFragment_Map.firstStore = new LatLng(arrayListMerchantList.get(position).getLatitude(),arrayListMerchantList.get(position).getLongitude());
-
-                MerchantFragment_Map.changeFirstStore(new LatLng(arrayListMerchantList.get(position).getLatitude(),arrayListMerchantList.get(position).getLongitude()));
-                MerchantFragment.tabHostMerchant.setCurrentTab(0);
-                MerchantFragment.viewpagerMerchant.setCurrentItem(0);
-            }
-        });
+        //data from Json server
+        productDesireList = new ArrayList<>();
+        myProductAdater = new MyStoreDetailShowroomAdapter(getActivity().getApplicationContext(),R.layout.store_detail_fragment_showroom_grid,productDesireList);
+        productgrid.setAdapter(myProductAdater);
 
 
         API = getActivity().getResources().getString(R.string.API);
@@ -78,7 +65,7 @@ public class MerchantFragment_List extends Fragment {
         doRequest();
 
 
-        lvMerchantList.setOnScrollListener(new AbsListView.OnScrollListener() {
+        productgrid.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
 
@@ -94,8 +81,8 @@ public class MerchantFragment_List extends Fragment {
             }
         });
 
-
-        return  view;
+        //solveCache();
+        return view;
     }
 
 
@@ -103,11 +90,11 @@ public class MerchantFragment_List extends Fragment {
         buyDesireService.getDesires(request, new Callback<ProductBound>() {
             @Override
             public void success(ProductBound productBound, Response response) {
-                arrayListMerchantList.clear();
+                productDesireList.clear();
                 for(Desire desire : productBound.getDesires()){
-                    arrayListMerchantList.add(desire);
+                    productDesireList.add(desire);
                 }
-                myMerchantListAdapter.notifyDataSetChanged();
+                myProductAdater.notifyDataSetChanged();
             }
 
             @Override
@@ -122,8 +109,5 @@ public class MerchantFragment_List extends Fragment {
     public String createRequest(int productcataloueId,int pageSize, int userId,  String countryCode, int pageIndex){
         return "{\"DeviceID\":\"android_id\",\"ProductCatalogueID\":"+productcataloueId +",\"AppVersion\":\"4.6\",\"pageSize\":"+pageSize+",\"MobilePlatform\":1,\"UserID\":"+userId+",\"DeviceType\":1,\"CreditCard\":0,\"DeviceAPID\":\"0ea4696f-9a3a-4214-9dab-bf3618f91561\",\"SortCriteria\":0,\"Filter\":0,\"CountryCode\":\""+countryCode+"\",\"PageIndex\":"+pageIndex+",\"CachedDataVersion\":-1}";
     }
-
-
-
 
 }

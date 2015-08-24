@@ -145,5 +145,17 @@
 
 
     <string name="API">http://dev.m.api.buydesire.com</string>
+    <string name="title_activity_store_infomation">StoreInfomationActivity</string>
+
+    <string-array name="listmoreinfo">
+
+        <item>Postage &amp; Delivery</item>
+        <item>Returns &amp; Exchanges</item>
+        <item>Customer Service</item>
+        <item>Join Loyalty Program</item>
+        <item>Payment Options</item>
+    </string-array>
+    <string name="title_activity_view_in_map">ViewInMapActivity</string>
+    <string name="title_activity_menu_more">MenuMoreActivity</string>
 
 </resources>

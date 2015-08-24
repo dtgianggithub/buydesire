@@ -4,42 +4,42 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.example.giangdam.buydesireex1.menumore.MenuMoreByCategoryFragment;
+import com.example.giangdam.buydesireex1.menumore.MenuMoreByRegionFragment;
+import com.example.giangdam.buydesireex1.menumore.MenuMoreSortFragment;
+
 import java.util.ArrayList;
 
-/**
- * Created by Giang.Dam on 8/5/2015.
- */
-public class MerchantFragment extends android.support.v4.app.Fragment {
+public class MenuMoreActivity extends AppCompatActivity {
 
-    static ViewPager viewpagerMerchant ;
-    static TabHost tabHostMerchant;
+    ViewPager viewpagerMenuMore ;
+    TabHost tabHostMenuMore;
     HorizontalScrollView horizontalScrollView;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater,  ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.merchants_fragment,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu_more);
 
-        viewpagerMerchant = (ViewPager)view.findViewById(R.id.viewpagerMerchant);
-        tabHostMerchant = (TabHost)view.findViewById(R.id.tabHostMerchant);
-        horizontalScrollView = (HorizontalScrollView)view.findViewById(R.id.scrollView);
 
+        viewpagerMenuMore = (ViewPager)findViewById(R.id.viewpagerMenuMore);
+        tabHostMenuMore = (TabHost)findViewById(R.id.tabHostMenuMore);
+        horizontalScrollView = (HorizontalScrollView)findViewById(R.id.scrollView);
 
         initTabHost();
         initViewPager();
 
 
-
-        for(int i = 0; i < tabHostMerchant.getTabWidget().getChildCount(); i++) {
-            View v = tabHostMerchant.getTabWidget().getChildAt(i);
+        for(int i = 0; i < tabHostMenuMore.getTabWidget().getChildCount(); i++) {
+            View v = tabHostMenuMore.getTabWidget().getChildAt(i);
 
             // Look for the title view to ensure this is an indicator and not a divider.
             TextView tv = (TextView)v.findViewById(android.R.id.title);
@@ -49,10 +49,7 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
             v.setBackgroundResource(R.drawable.tab_selector);
         }
 
-
-
-
-        viewpagerMerchant.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewpagerMenuMore.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -61,7 +58,7 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
             @Override
             public void onPageSelected(int position) {
 
-                tabHostMerchant.setCurrentTab(position);
+                tabHostMenuMore.setCurrentTab(position);
                 //tabHost.getTabWidget().getChildTabViewAt(position).setBackgroundColor(Color.RED);
             }
 
@@ -71,34 +68,31 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
             }
         });
 
-        tabHostMerchant.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+        tabHostMenuMore.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                int selectedPage = tabHostMerchant.getCurrentTab();
-                viewpagerMerchant.setCurrentItem(selectedPage);
+                int selectedPage = tabHostMenuMore.getCurrentTab();
+                viewpagerMenuMore.setCurrentItem(selectedPage);
 
-                View tabView = tabHostMerchant.getCurrentTabView();
+                View tabView = tabHostMenuMore.getCurrentTabView();
                 int scrollPostion = tabView.getLeft() - (horizontalScrollView.getWidth() - tabView.getWidth()) / 2;
                 horizontalScrollView.smoothScrollTo(scrollPostion, 0);
-                
+
             }
         });
-
-
-        return  view;
     }
 
 
     private void initTabHost() {
-        tabHostMerchant.setup();
+        tabHostMenuMore.setup();
 
-        String[] tabNames = {"Map","List", "Directory"};
+        String[] tabNames = {"By Category","By Region", "Sort"};
         for(int i = 0 ; i< tabNames.length; i++){
             TabHost.TabSpec tabSpec;
-            tabSpec = tabHostMerchant.newTabSpec(tabNames[i]);
+            tabSpec = tabHostMenuMore.newTabSpec(tabNames[i]);
             tabSpec.setIndicator(tabNames[i]);
-            tabSpec.setContent(new FakeContent(getActivity().getApplicationContext()));
-            tabHostMerchant.addTab(tabSpec);
+            tabSpec.setContent(new FakeContent(getApplicationContext()));
+            tabHostMenuMore.addTab(tabSpec);
         }
     }
 
@@ -122,19 +116,16 @@ public class MerchantFragment extends android.support.v4.app.Fragment {
     }
 
     private void initViewPager(){
-
+        viewpagerMenuMore.setOffscreenPageLimit(2);
         ArrayList<Fragment> fragments = new ArrayList<android.support.v4.app.Fragment>();
-        //fragments.clear();
-        fragments.add(new MerchantFragment_Map());
-        fragments.add(new MerchantFragment_List());
-        fragments.add(new MerchantFragment_Directory());
+        fragments.add(new MenuMoreByCategoryFragment());
+        fragments.add(new MenuMoreByRegionFragment());
+        fragments.add(new MenuMoreSortFragment());
 
 
-        PagerAdapter pagerAdapter = new PagerAdapter(getFragmentManager(),fragments);
-        viewpagerMerchant.setAdapter(pagerAdapter);
-
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),fragments);
+        viewpagerMenuMore.setAdapter(pagerAdapter);
     }
-
 
 
 }

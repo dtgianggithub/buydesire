@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.giangdam.buydesireex1.StoreInfomationActivity">
+
+
+    <item
+        android:id="@+id/desires_detail_barcode"
+        android:icon="@drawable/icon_qr_barcode_on_action_bar"
+        android:title="Menu"
+        app:showAsAction="ifRoom|collapseActionView"
+        tools:ignore="AppCompatResource"
+        />
+
+    <item
+        android:id="@+id/desires_detail_location"
+        android:icon="@drawable/ic_menu_merchants"
+        android:title="Menu"
+        app:showAsAction="ifRoom|collapseActionView"
+        tools:ignore="AppCompatResource"
+        />
+
+    <item
+        android:id="@+id/desires_detail_plus"
+        android:icon="@drawable/ic_desiredetail_plus"
+        android:title="Menu"
+        app:showAsAction="ifRoom|collapseActionView"
+        tools:ignore="AppCompatResource"
+        />
+
+
+
+</menu>

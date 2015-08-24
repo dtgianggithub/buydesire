@@ -1,6 +1,8 @@
 package com.example.giangdam.buydesireex1;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.giangdam.retrofitmodel.Desire;
 
 import java.util.ArrayList;
 
@@ -17,10 +21,10 @@ import java.util.ArrayList;
 public class MyMerchantListAdapter extends BaseAdapter {
 
     Context context = null;
-    ArrayList<String> arrayList = null;
+    ArrayList<Desire> arrayList = null;
     int layoutId ;
 
-    public MyMerchantListAdapter(Context context, int layoutId,ArrayList<String> arrayList){
+    public MyMerchantListAdapter(Context context, int layoutId,ArrayList<Desire> arrayList){
         super();
         this.context =context;
         this.arrayList = arrayList;
@@ -59,9 +63,9 @@ public class MyMerchantListAdapter extends BaseAdapter {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
 
         if(convertView == null){
             viewHolder = new ViewHolder();
@@ -76,8 +80,25 @@ public class MyMerchantListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        viewHolder.txtStoreName.setText(arrayList.get(position));
 
+        viewHolder.btnViewStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context.getApplicationContext(), StoreInfomationActivity.class);
+                Bundle bundle = new Bundle();
+
+                //Need to tranfer store name
+
+                bundle.putDouble("Latitude", arrayList.get(position).getLatitude());
+                bundle.putDouble("Longitude",arrayList.get(position).getLongitude());
+                intent.putExtra("StoreInfoBundle",bundle);
+                context.startActivity(intent);
+            }
+        });
+
+
+        viewHolder.txtStoreName.setText("Store Name");
+        viewHolder.txtDecription.setText(String.valueOf(arrayList.get(position).getLatitude()) +","+ String.valueOf(arrayList.get(position).getLongitude()) );
 
         return  convertView;
     }
