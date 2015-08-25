@@ -1,6 +1,7 @@
 package com.example.giangdam.retrofitadapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.giangdam.buydesireex1.DetailProductActivity;
 import com.example.giangdam.buydesireex1.R;
 import com.example.giangdam.retrofitmodel.Desire;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -99,6 +101,14 @@ public class RetrofitProductAdater extends BaseAdapter {
         //set Image Product
         //new viewImageUrl(viewHolder.imgProductImage).execute(arrayList.get(position).getProductImage());
         viewHolder.imageLoader.displayImage(arrayList.get(position).getProductImage(),viewHolder.imgProductImage, viewHolder.imageOptions);
+        viewHolder.imgProductImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
         return  convertView;
     }
 

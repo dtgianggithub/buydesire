@@ -39,12 +39,11 @@ public class MenuMoreByCategoryFragment extends Fragment {
 
 
 
-        string_menumore_category = getActivity().getResources().getStringArray(R.array.recommedations);
+        string_menumore_category = getActivity().getResources().getStringArray(R.array.menumore_bycategory);
         arrayList = new ArrayList<>();
         Collections.addAll(arrayList, string_menumore_category); // replace for for() or foreach
         myMenuMoreByCategoryAdapter = new MyMenuMoreByCategoryAdapter(getActivity().getBaseContext(),R.layout.custom_list_menumore_bycategory,arrayList);
         lvmenumore_bycategory.setAdapter(myMenuMoreByCategoryAdapter);
-
         return view;
     }
 }

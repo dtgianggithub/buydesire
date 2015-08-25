@@ -11,7 +11,6 @@ import android.graphics.Shader;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -205,8 +204,13 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.container,addFragment);
                         fragmentTransaction.commit();
                         */
-
+                        /*
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivity(intent);
+                        break;
+                        */
+
+                        Intent intent = new Intent(MainActivity.this, CameraPreviewActivity.class);
                         startActivity(intent);
                         break;
                     case 1:

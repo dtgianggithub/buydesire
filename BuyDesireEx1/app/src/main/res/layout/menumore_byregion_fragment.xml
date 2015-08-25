@@ -4,6 +4,14 @@
     android:background="@color/gray"
     android:layout_height="match_parent">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvmenumore_byregion"
+        android:scrollbars="none"
+        ></ListView>
+
+
 
 
 </LinearLayout>

@@ -158,4 +158,47 @@
     <string name="title_activity_view_in_map">ViewInMapActivity</string>
     <string name="title_activity_menu_more">MenuMoreActivity</string>
 
+    <string-array name="menumore_bycategory">
+        <item>Bars &amp; Wine</item>
+        <item>Travel</item>
+        <item>Local Experiences</item>
+        <item>Beauty</item>
+        <item>Home</item>
+        <item>Pantry &amp; Cellar</item>
+        <item>Gadgets</item>
+        <item>Art</item>
+        <item>Food</item>
+        <item>Media</item>
+        <item>Outdoors &amp; Active</item>
+        <item>DIY &amp; Crafts</item>
+        <item>Workspace</item>
+        <item>Cars &amp; Vehicles</item>
+        <item>Vintage</item>
+        <item>Kids</item>
+
+    </string-array>
+
+    <string-array name="menumore_byregion">
+        <item>All</item>
+        <item>Australia</item>
+        <item>Canada</item>
+        <item>China</item>
+        <item>Hong Kong</item>
+        <item>New Zealand</item>
+        <item>Singapore</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Vietnam</item>
+    </string-array>
+
+    <string-array name="menumore_sort">
+        <item>Popularity</item>
+        <item>Price High to Low</item>
+        <item>Brands A to Z</item>
+        <item>Brands Z to A</item>
+        <item>What\'s New</item>
+    </string-array>
+    <string name="title_activity_camera_preview">CameraPreviewActivity</string>
+    <string name="title_activity_detail_product">DetailProductActivity</string>
+
 </resources>

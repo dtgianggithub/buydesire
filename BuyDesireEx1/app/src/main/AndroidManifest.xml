@@ -11,7 +11,9 @@
     <uses-feature
         android:name="android.hardware.location.gps"
         android:required="true" />
+    <uses-feature android:name="android.hardware.camera2" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -75,6 +77,14 @@
         <activity
             android:name=".MenuMoreActivity"
             android:label="@string/title_activity_menu_more" >
+        </activity>
+        <activity
+            android:name=".CameraPreviewActivity"
+            android:label="@string/title_activity_camera_preview" >
+        </activity>
+        <activity
+            android:name=".DetailProductActivity"
+            android:label="@string/title_activity_detail_product" >
         </activity>
     </application>
 
