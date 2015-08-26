@@ -201,4 +201,9 @@
     <string name="title_activity_camera_preview">CameraPreviewActivity</string>
     <string name="title_activity_detail_product">DetailProductActivity</string>
 
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="title_activity_view_nofitcation_activtiy">ViewNofitcationActivtiy</string>
+
+
 </resources>

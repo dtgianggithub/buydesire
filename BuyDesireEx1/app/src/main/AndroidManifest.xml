@@ -86,6 +86,10 @@
             android:name=".DetailProductActivity"
             android:label="@string/title_activity_detail_product" >
         </activity>
+        <activity
+            android:name=".ViewNofitcationActivtiy"
+            android:label="@string/title_activity_view_nofitcation_activtiy" >
+        </activity>
     </application>
 
 </manifest>

@@ -3,8 +3,10 @@ package com.example.giangdam.retrofitmodel;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
 
-public class Desire {
+
+public class Desire  implements Serializable{
 
     @Expose
     private String WishListID;

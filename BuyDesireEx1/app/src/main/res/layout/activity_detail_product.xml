@@ -1,57 +1,414 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.giangdam.buydesireex1.DetailProductActivity"
+    android:orientation="vertical">
+
+
+    <include android:id="@+id/app_bar_detail_product"  layout="@layout/app_bar_storeinfo" />
+
+
+
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
+
+
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:background="@color/white"
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary"
+            android:fitsSystemWindows="true"
             app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp"
-            android:fitsSystemWindows="true">
+            app:expandedTitleMarginEnd="64dp">
 
-            <ImageView
 
+
+            <LinearLayout
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background= "@drawable/dump_merchant_image"
-                >
+                android:layout_height="wrap_content">
 
-            </ImageView>
+                <LinearLayout
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    >
+                    <ImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:fitsSystemWindows="true"
+                        app:layout_collapseMode="parallax" />
+                </LinearLayout>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin" />
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:background="@color/gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desire by"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/yellow"
+                        android:text="Giang Truong Dam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/circledrawmyself"
+                    android:layout_marginBottom="2dp"
+                    >
+                </View>
+
+            </LinearLayout>
+
+
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
 
+
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/net"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <!-- design body in here -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
+
+            <TableLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight= "10"
+                        android:id="@+id/lblProductNameDetail"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:text = "Product Name"
+                        />
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_marginRight="20dp"
+                        android:gravity="right"
+                        android:layout_weight= "5"
+                        android:id="@+id/lblProductPriceDetail"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:text = "Price"
+                        />
+
+                </TableRow>
+
+                <TableRow android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight= "1"
+                        android:id="@+id/lblProductCompanyDetail"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:text = "Product Company"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_weight = "3"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        >
+                        <Button
+                            android:textColor="@color/white"
+                           android:layout_marginLeft="20dp"
+                            android:id="@+id/btnBuy"
+                            android:layout_width ="wrap_content"
+                            android:layout_height = "40dp"
+                            android:text = "Buy"
+                            android:background="@color/black"
+                            android:textAllCaps="false"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight = "2"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        >
+
+                        <ImageView
+                            android:layout_weight = "1"
+                            android:id="@+id/imgDesireDetail"
+                            android:layout_width ="20dp"
+                            android:layout_height = "30dp"
+                            android:background = "@drawable/ic_desiredetail_heart_off"
+                            />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_weight = "1"
+                            android:text="0"
+                            android:id="@+id/lblDesireCountDetail"
+                            android:layout_width ="wrap_content"
+                            android:layout_height = "wrap_content"
+                            />
+
+                        <ImageView
+                            android:layout_marginRight="20dp"
+                            android:layout_weight = "1"
+                            android:id="@+id/imgLocateDetail"
+                            android:layout_width ="20dp"
+                            android:layout_height = "30dp"
+                            android:background = "@drawable/ic_desiredetail_location"
+                            />
+                    </LinearLayout>
+
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                />
+
+
+
+
+            <TextView
+                android:id="@+id/lblFeatures"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fashined after the Hercules Love Knot, the Perfect Match bracelet is a reinterpretation of the friendship brcelet"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <Button
+                android:textColor="@color/white"
+                android:id="@+id/btnChangeFeatures"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height = "40dp"
+                android:text ="Change Features"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/black"
+                android:textAllCaps="false"
+                />
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:gravity ="center"
+                >
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="30dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/ic_desiredetail_seemore"
+                    />
+                <TextView
+
+                    android:id="@+id/lblseemore"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/gray"
+                />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:gravity ="center"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text ="You might also like"
+                android:textColor= "@color/black"
+                />
+          </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/gray"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:gravity ="center"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text ="0 comments"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:gravity ="center"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text ="Be the first to comment"
+                    android:textColor= "@color/black"
+                    />
+
+                <LinearLayout
+                    android:layout_marginTop= "20dp"
+                    android:layout_marginBottom= "20dp"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="wrap_content"
+                    android:gravity ="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                    <EditText
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="5"
+                        android:background="@drawable/edittextbackground"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        />
+
+                    <Button
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="2dp"
+                        android:id="@+id/btnPost"
+                        android:layout_width ="wrap_content"
+                        android:layout_height = "40dp"
+                        android:text = "Post"
+                        android:background="@color/black"
+                        android:textAllCaps="false"
+                        android:layout_marginRight="20dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
 
     </android.support.v4.widget.NestedScrollView>
 
-
-
 </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+</LinearLayout>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ public class RetrofitProductAdater extends BaseAdapter {
     ArrayList<Desire> arrayList;
     Context context;
     int layoutId;
+    int mPostion = -1;
 
 
     public RetrofitProductAdater(Context context, int layoutId, ArrayList<Desire> arrayList){
@@ -71,7 +73,7 @@ public class RetrofitProductAdater extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ViewHolder viewHolder;
 
@@ -94,7 +96,7 @@ public class RetrofitProductAdater extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-
+        mPostion = position;
        viewHolder.txtRetailerName.setText((CharSequence) arrayList.get(position).getRetailerName());
         viewHolder.txtDesiresCount.setText(String.valueOf(arrayList.get(position).getDesiresCount()));
 
@@ -104,10 +106,18 @@ public class RetrofitProductAdater extends BaseAdapter {
         viewHolder.imgProductImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.getApplicationContext().startActivity(intent);
+                //send product
+
+                    Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
+                    Bundle bundle = new Bundle();
+
+                    bundle.putSerializable("product",arrayList.get(position));
+                    intent.putExtra("product_bundle", bundle);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.getApplicationContext().startActivity(intent);
             }
+
+
         });
         return  convertView;
     }

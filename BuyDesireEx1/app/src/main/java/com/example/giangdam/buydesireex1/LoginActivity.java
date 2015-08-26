@@ -1,7 +1,10 @@
 package com.example.giangdam.buydesireex1;
 
 import android.app.Dialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
@@ -10,6 +13,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -87,6 +91,10 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
 
     TextView lblSignUp, lblSignIn;
+
+    String loginFB = "You had login with Facebook";
+    String loginTW = "You had login with Twitter";
+    String loginGP = "You had login with GooglePlus";
 
 
 
@@ -201,6 +209,29 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
     }
 
 
+    public void notifyLogin(String notification){
+        String serName= Context.NOTIFICATION_SERVICE;
+        NotificationManager notificationManager = (NotificationManager) getSystemService(serName);
+
+        String contenttitle = "BuyDesire Notification";
+        String contenttext = "Click to view app notification";
+
+        Intent intent= new Intent(getApplicationContext(), ViewNofitcationActivtiy.class);
+        intent.putExtra("notification",notification);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(getApplication())
+                        .setSmallIcon(R.drawable.ic_recommend_bd)
+                        .setContentTitle(contenttitle).setContentIntent(pendingIntent)
+                        .setContentText(contenttext);
+
+
+        notificationManager.notify(1, mBuilder.build());
+    }
+
+
     public class LoginGooglePlus implements View.OnClickListener {
 
         @Override
@@ -245,6 +276,7 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
+
         finish();
     }
 
@@ -386,6 +418,7 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
                 typeLogin = 2;
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+
                 finish();
             }
         }

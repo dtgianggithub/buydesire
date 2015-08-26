@@ -1,5 +1,8 @@
 package com.example.giangdam.buydesireex1;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -15,6 +18,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
     TextView lblusername;
     Bitmap bitmaptwitter;
 
+    String loginFB = "You had login with Facebook";
+    String loginTW = "You had login with Twitter";
+    String loginGP = "You had login with GooglePlus";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 .resetViewBeforeLoading(true).build();
 
         if(LoginActivity.typeLogin == 1){
+            notifyLogin(loginFB);
+
             GraphRequest request = GraphRequest.newMeRequest(
                     LoginActivity.accessToken,
                     new GraphRequest.GraphJSONObjectCallback() {
@@ -126,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(LoginActivity.typeLogin == 2){
+            notifyLogin(loginTW);
             LoginActivity.pref = getSharedPreferences(LoginActivity.TWITTER_SHAREPRE,MODE_PRIVATE);
             lblusername.setText(LoginActivity.pref.getString("NAME", ""));
             imageLoaderAvartar.displayImage(LoginActivity.pref.getString("IMAGE_URL", ""),imgprofilepicture, imageOptionsAvartar);
@@ -133,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(LoginActivity.typeLogin == 3){
+            notifyLogin(loginGP);
             //new LoadProfileGooglePlus().execute();
             LoginActivity.pref = getSharedPreferences(LoginActivity.GOOGLEPLUS_SHAREPRE,MODE_PRIVATE);
             lblusername.setText(LoginActivity.pref.getString("PERSONNAME_GOOGLEPLUS", ""));
@@ -199,17 +211,6 @@ public class MainActivity extends AppCompatActivity {
                 //Intent intent;
                 switch (position) {
                     case 0:
-                        /*
-                        AddFragment addFragment = new AddFragment();
-                        fragmentTransaction.replace(R.id.container,addFragment);
-                        fragmentTransaction.commit();
-                        */
-                        /*
-                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivity(intent);
-                        break;
-                        */
-
                         Intent intent = new Intent(MainActivity.this, CameraPreviewActivity.class);
                         startActivity(intent);
                         break;
@@ -284,6 +285,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void notifyLogin(String notification){
+        String serName= Context.NOTIFICATION_SERVICE;
+        NotificationManager notificationManager = (NotificationManager) getSystemService(serName);
+
+        String contenttitle = "BuyDesire Notification";
+        String contenttext = "Click to view app notification";
+
+        Intent intent= new Intent(getApplicationContext(), ViewNofitcationActivtiy.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("notification",notification);
+        intent.putExtra("bundle_notification",bundle);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(getApplication())
+                        .setSmallIcon(R.drawable.ic_recommend_bd)
+                        .setContentTitle(contenttitle).setContentIntent(pendingIntent)
+                        .setContentText(contenttext);
+
+
+        notificationManager.notify(1, mBuilder.build());
+    }
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -327,6 +353,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 
