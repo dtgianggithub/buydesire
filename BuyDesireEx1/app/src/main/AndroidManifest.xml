@@ -88,7 +88,14 @@
         </activity>
         <activity
             android:name=".ViewNofitcationActivtiy"
-            android:label="@string/title_activity_view_nofitcation_activtiy" >
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_view_nofitcation_activtiy"
+            android:launchMode="singleTask"
+            android:taskAffinity="" >
+        </activity>
+        <activity
+            android:name=".SaveDesireActivity"
+            android:label="@string/title_activity_save_desire" >
         </activity>
     </application>
 

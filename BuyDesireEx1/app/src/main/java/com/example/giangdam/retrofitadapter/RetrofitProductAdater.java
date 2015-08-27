@@ -17,7 +17,10 @@ import android.widget.TextView;
 
 import com.example.giangdam.buydesireex1.DetailProductActivity;
 import com.example.giangdam.buydesireex1.R;
+import com.example.giangdam.buydesireex1.SaveDesireActivity;
+import com.example.giangdam.buydesireex1.ViewInMapActivity;
 import com.example.giangdam.retrofitmodel.Desire;
+import com.google.android.gms.maps.MapFragment;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -107,20 +110,72 @@ public class RetrofitProductAdater extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //send product
+                Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
+                Bundle bundle = new Bundle();
 
-                    Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
-                    Bundle bundle = new Bundle();
-
-                    bundle.putSerializable("product",arrayList.get(position));
-                    intent.putExtra("product_bundle", bundle);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.getApplicationContext().startActivity(intent);
+                bundle.putSerializable("product", arrayList.get(position));
+                intent.putExtra("product_bundle", bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
             }
 
 
         });
+
+        viewHolder.imgbtnShoppingBag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send product
+                Intent intent = new Intent(context.getApplicationContext(), DetailProductActivity.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("product", arrayList.get(position));
+                intent.putExtra("product_bundle", bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
+
+
+        viewHolder.imgbtnDesires.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context.getApplicationContext(), SaveDesireActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
+
+
+        viewHolder.imgbtnLocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //start new Activity with map
+
+                Intent intent = new Intent(context.getApplicationContext(), ViewInMapActivity.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putDouble("Latitude", arrayList.get(position).getLatitude());
+                bundle.putDouble("Longitude",arrayList.get(position).getLongitude());
+                intent.putExtra("StoreInfoBundle",bundle);
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+                if (ViewInMapActivity.googleMap != null) {
+                    ViewInMapActivity.googleMap = ((MapFragment)ViewInMapActivity.visiblefragmentManager.findFragmentById(R.id.map)).getMap();
+                    ViewInMapActivity.visiblefragmentManager.beginTransaction()
+                            .remove(ViewInMapActivity.visiblefragmentManager.findFragmentById(R.id.map)).commit();
+                    ViewInMapActivity.googleMap = null;
+                }
+
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
         return  convertView;
     }
+
+
 
 
     private class viewImageUrl extends AsyncTask<String, Void, Bitmap> {

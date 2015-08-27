@@ -148,7 +148,6 @@
     <string name="title_activity_store_infomation">StoreInfomationActivity</string>
 
     <string-array name="listmoreinfo">
-
         <item>Postage &amp; Delivery</item>
         <item>Returns &amp; Exchanges</item>
         <item>Customer Service</item>
@@ -204,6 +203,7 @@
 
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="title_activity_view_nofitcation_activtiy">ViewNofitcationActivtiy</string>
+    <string name="title_activity_save_desire">SaveDesireActivity</string>
 
 
 </resources>

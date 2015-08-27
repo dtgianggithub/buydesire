@@ -1,8 +1,7 @@
 package com.example.giangdam.buydesireex1;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,12 +32,23 @@ public class ViewNofitcationActivtiy extends AppCompatActivity {
             }
         });
 
-
         lblNotificationContent = (TextView)findViewById(R.id.lblNotificationContent);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("bundle_notification");
-        lblNotificationContent.setText(bundle.getString("notification"));
+        switch (LoginActivity.typeLogin){
+            case 1:
+                lblNotificationContent.setText(MainActivity.loginFB);
+                break;
+            case 2:
+                lblNotificationContent.setText(MainActivity.loginTW);
+                break;
+            case 3:
+                lblNotificationContent.setText(MainActivity.loginGP);
+                break;
+            default:
+                break;
+        }
+
+
     }
 
     @Override

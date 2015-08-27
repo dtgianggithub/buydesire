@@ -376,6 +376,8 @@
                     >
 
                     <EditText
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:layout_marginLeft="20dp"
                         android:id="@+id/txtComment"
                         android:layout_width="wrap_content"

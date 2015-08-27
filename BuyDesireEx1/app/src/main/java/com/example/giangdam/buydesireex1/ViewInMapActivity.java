@@ -1,5 +1,6 @@
 package com.example.giangdam.buydesireex1;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,7 +25,9 @@ public class ViewInMapActivity extends AppCompatActivity {
     android.support.v7.widget.Toolbar toolbar;
     LatLng storeLatLng;
 
-    static GoogleMap googleMap ;
+    public static GoogleMap googleMap ;
+
+    public static FragmentManager visiblefragmentManager;
 
 
 
