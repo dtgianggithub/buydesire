@@ -1,0 +1,418 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.giangdam.buydesireex1.EditProfileActivity">
+
+    <include android:id="@+id/app_bar_edit_profile"  layout="@layout/app_bar_storeinfo" />
+
+    <TextView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        >
+
+       <LinearLayout
+           android:layout_marginTop="20dp"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <LinearLayout
+               android:orientation="vertical"
+               android:layout_weight="5"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content">
+
+              <EditText
+                  android:hint="First Name"
+                  android:id="@+id/txtEditFirstName"
+                  android:layout_marginLeft="20dp"
+                  android:layout_height="50dp"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:background="@drawable/edittextbackground"
+                  android:layout_width="match_parent"
+                  />
+
+               <EditText
+                   android:hint="Last Name"
+                   android:id="@+id/txtEditLastName"
+                   android:layout_marginLeft="20dp"
+                    android:layout_marginTop="7dp"
+                   android:layout_height="50dp"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:background="@drawable/edittextbackground"
+                   android:layout_width="match_parent"
+                   />
+           </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgEditProfile"
+                    android:background="@drawable/user_avatar_default_neutral"
+                    android:layout_width="107dp"
+                    android:layout_height="107dp" />
+
+            </LinearLayout>
+       </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_marginTop="7dp"
+                >
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/txtEditProfileName"
+                        android:hint="Profile Name"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="50dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@drawable/edittextbackground"
+                        android:layout_width="match_parent"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_weight="3"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="7dp"
+                >
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/txtEditAboutMe"
+                        android:hint="About me"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="50dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@drawable/edittextbackground"
+                        android:layout_width="match_parent"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_weight="3"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="7dp"
+                >
+                <LinearLayout
+                    android:layout_weight="5"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/txtEditWebsiteURL"
+                        android:hint="Website URL"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="50dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@drawable/edittextbackground"
+                        android:layout_width="match_parent"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_weight="3"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Help us to show you more acurated items"
+           android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+               android:layout_marginLeft="20dp"
+                android:text="Female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+               android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_female_unselected"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:text="Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+              android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_male_unselected"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:text="Not Telling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+               android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_not_telling_unselected"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/txtEditEmail"
+            android:hint="Email"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittextbackground"
+            />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"
+            android:text="Change Email"
+            android:background="@color/black"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"
+            android:text="Change Password"
+            android:background="@color/black"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            />
+
+
+    <RelativeLayout
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ic_friend_facebook"
+            android:id="@+id/imgeditprofilefacebook"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:text="Linked with Facebook as"
+            android:layout_toRightOf="@id/imgeditprofilefacebook"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/connectFB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="damtruonggiang94@gmail.com"
+            android:layout_toRightOf="@id/imgeditprofilefacebook"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/connectFB"
+            android:id="@+id/emailFB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ToggleButton
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:id="@+id/toggleButtonFB"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:background="@drawable/toggle_selector"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            />
+
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/imgeditprofilefacebook"
+            android:background="@drawable/ic_friend_google"
+            android:id="@+id/imgeditprofilegoogleplus"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/imgeditprofilegoogleplus"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/emailFB"
+            android:text="Connect with Google+"
+            android:id="@+id/connectGP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@+id/imgeditprofilegoogleplus"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/connectGP"
+            android:id="@+id/emailGP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ToggleButton
+            android:layout_marginTop="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/toggleButtonFB"
+            android:id="@+id/toggleButtonGP"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:background="@drawable/toggle_selector"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            />
+
+
+        <ImageView
+            android:layout_marginTop="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/imgeditprofilegoogleplus"
+            android:background="@drawable/ic_friend_twitter"
+            android:id="@+id/imgeditprofiletwitter"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:text="Connect with Twitter"
+            android:layout_toRightOf="@+id/imgeditprofiletwitter"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/emailGP"
+            android:id="@+id/connectTT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@+id/imgeditprofiletwitter"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/connectTT"
+            android:id="@+id/emailTT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ToggleButton
+            android:layout_marginTop="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/toggleButtonGP"
+            android:id="@+id/toggleButtonTT"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/toggle_selector"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            />
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

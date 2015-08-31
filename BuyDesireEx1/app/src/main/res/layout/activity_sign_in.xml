@@ -15,6 +15,13 @@
         android:textSize="24sp"
         android:textColor="@color/black"
         />
+
+    <TextView
+        android:textColor="@color/red"
+        android:id="@+id/lblnotifysignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -24,6 +31,7 @@
         android:id="@+id/txtEmailSignIn"
         />
     <EditText
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +48,7 @@
         android:textColor="@color/black"/>
 
     <Button
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/yellow"

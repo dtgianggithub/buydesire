@@ -43,6 +43,9 @@ public class SettingsFragment extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
+
+                    case 0:
+                        break;
                     case 7:
                         doLogout();
                         break;
@@ -80,6 +83,14 @@ public class SettingsFragment extends android.support.v4.app.Fragment {
                     edit.apply();
 
                 }
+
+                if (LoginActivity.typeLogin == 4) {
+                    LoginActivity.pref = getActivity().getSharedPreferences(LoginActivity.MYACCOUNT_SHAREPRE, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = LoginActivity.pref.edit();
+                    edit.putLong("My_User_Id",-1);
+                    edit.apply();
+                }
+
 
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);

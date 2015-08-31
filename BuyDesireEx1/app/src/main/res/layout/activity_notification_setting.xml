@@ -1,0 +1,197 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.giangdam.buydesireex1.NotificationSettingActivity">
+
+    <include android:id="@+id/app_bar_notification_setting"  layout="@layout/app_bar_storeinfo" />
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="How do you want to be notified?"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                />
+
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/ic_notification_settings_phone"
+                android:layout_width="30dp"
+                android:layout_height="40dp" />
+
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/ic_notification_settings_email"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/yellow"
+            />
+
+      <TableLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <TableRow
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="There is important news about BuyDesire"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+               android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+          <TableRow
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="There are sales and special offers"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+          <TableRow
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="Someone wants to follows me"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+          <TableRow
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="Someone I invited joins BuyDesire"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+          <TableRow
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="Some comments on one of my Desires"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+          <TableRow
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              >
+              <TextView
+                  android:paddingLeft="20dp"
+                  android:textSize="15sp"
+                  android:layout_width="0dp"
+                  android:text="Someone also Desires one of my most Desired"
+                  android:layout_weight="10"
+                  />
+              <CheckBox
+                  android:layout_marginTop="20dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_weight="1"
+                  />
+              <CheckBox
+
+                  android:layout_weight="1"
+                  />
+          </TableRow>
+
+      </TableLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

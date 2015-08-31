@@ -1,62 +1,39 @@
 package com.example.giangdam.buydesireex1;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-public class ViewNofitcationActivtiy extends AppCompatActivity {
+public class NotificationSettingActivity extends AppCompatActivity {
 
-    TextView lblNotificationContent;
     android.support.v7.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_nofitcation_activtiy);
+        setContentView(R.layout.activity_notification_setting);
 
 
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar_view_notification);
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar_notification_setting);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setTitle("Notification");
-
+        getSupportActionBar().setTitle("Notifications Settings");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
-        lblNotificationContent = (TextView)findViewById(R.id.lblNotificationContent);
-
-        switch (LoginActivity.typeLogin){
-            case 1:
-                lblNotificationContent.setText(MainActivity.loginFB);
-                break;
-            case 2:
-                lblNotificationContent.setText(MainActivity.loginTW);
-                break;
-            case 3:
-                lblNotificationContent.setText(MainActivity.loginGP);
-                break;
-            case 4:
-                lblNotificationContent.setText(MainActivity.loginMA);
-            default:
-                break;
-        }
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_nofitcation_activtiy, menu);
+        getMenuInflater().inflate(R.menu.menu_notification_setting, menu);
         return true;
     }
 

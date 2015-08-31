@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context="com.example.giangdam.buydesireex1.ShippingBillingActivity">
+
+    <include android:id="@+id/app_bar_shipping_billing"  layout="@layout/app_bar_storeinfo" />
+
+    <TextView
+        android:background="@color/white"
+        android:text="Shipping address"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <TextView
+        android:background="@color/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <ImageButton
+            android:background="@drawable/ic_add"
+            android:layout_centerInParent="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Shipping Address"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:background="@color/white"
+        android:layout_marginTop="7dp"
+        android:text="Billing address"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <TextView
+        android:background="@color/yellow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <ImageButton
+            android:background="@drawable/ic_add"
+            android:layout_centerInParent="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Billing Address"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

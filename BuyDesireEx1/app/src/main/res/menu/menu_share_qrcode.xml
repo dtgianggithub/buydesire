@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.giangdam.buydesireex1.ShareQRCode">
+    <item
+        android:id="@+id/detail_product_desires_detail_recommend"
+        android:icon="@drawable/ic_desiredetail_recommended"
+        android:title="Menu"
+        app:showAsAction="ifRoom|collapseActionView"
+        tools:ignore="AppCompatResource"
+        />
+</menu>

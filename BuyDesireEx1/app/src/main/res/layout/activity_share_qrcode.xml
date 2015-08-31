@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.giangdam.buydesireex1.ShareQRCode">
+
+
+    <include android:id="@+id/app_bar_shareQRcode"  layout="@layout/app_bar_storeinfo" />
+
+    <RelativeLayout
+        android:id="@+id/layout_content"
+        android:layout_below="@+id/app_bar_shareQRcode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+   <TextView
+       android:layout_alignParentTop="true"
+       android:textColor="@color/black"
+       android:textSize="15sp"
+       android:gravity="center"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Share this QR code with your friends to connect your desires"
+       />
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/qrcode"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/imgproductcanvas"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/btnScanQRCode"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:text="SCAN QRCODE"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

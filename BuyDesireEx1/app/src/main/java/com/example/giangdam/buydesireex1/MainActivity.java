@@ -29,6 +29,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.giangdam.buydesireex1.dao.DBUser;
+import com.example.giangdam.buydesireex1.daomanager.DatabaseManager;
+import com.example.giangdam.buydesireex1.daomanager.IDatabaseManager;
 import com.example.giangdam.model.User;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
@@ -49,6 +52,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -80,11 +84,19 @@ public class MainActivity extends AppCompatActivity {
     public static String loginFB = "You had login with Facebook";
     public static String loginTW = "You had login with Twitter";
     public static String loginGP = "You had login with GooglePlus";
+    public static String loginMA = "You had login with BuyDesire Account";
     public static int numMessages = 0;
 
 
 
     public static int notificationcount = 0;
+
+
+    private List<DBUser> userList;
+    /**
+     * Manages the database for this application..
+     */
+    private IDatabaseManager databaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
                 .resetViewBeforeLoading(true).build();
 
         if(LoginActivity.typeLogin == 1){
-
-
             GraphRequest request = GraphRequest.newMeRequest(
                     LoginActivity.accessToken,
                     new GraphRequest.GraphJSONObjectCallback() {
@@ -159,7 +169,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        if(LoginActivity.typeLogin == 4){
+            // init database manager
+            databaseManager = new DatabaseManager(this);
+            userList = new ArrayList<DBUser>();
+            userList = databaseManager.listUsers();
 
+            LoginActivity.pref = getSharedPreferences(LoginActivity.MYACCOUNT_SHAREPRE, MODE_PRIVATE);
+            for(int i = 0; i< userList.size(); i++){
+               if(LoginActivity.pref.getLong("My_User_Id", -1) == userList.get(i).getId()){
+                   lblusername.setText(userList.get(i).getFirstname() + " " + userList.get(i).getLastname());
+                   imgprofilepicture.setImageResource(R.drawable.ic_welcome_male_on);
+                   break;
+               }
+            }
+        }
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -276,9 +300,14 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.commit();
                         break;
                     case 9:
+                        /*
                         SettingsFragment settingsFragment = new SettingsFragment();
                         fragmentTransaction.replace(R.id.container,settingsFragment);
                         fragmentTransaction.commit();
+                        */
+
+                        Intent intentSetting = new Intent(MainActivity.this, SettingActivity.class);
+                        startActivity(intentSetting);
                         break;
                     default:
                         break;
@@ -291,6 +320,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void getDiscover(){
+
+    }
 
     public void notifyLogin(){
 

@@ -97,6 +97,42 @@
             android:name=".SaveDesireActivity"
             android:label="@string/title_activity_save_desire" >
         </activity>
+        <activity
+            android:name=".ShareQRCode"
+            android:label="@string/title_activity_share_qrcode" >
+        </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".ShippingBillingActivity"
+            android:label="@string/title_activity_shipping_billing" >
+        </activity>
+        <activity
+            android:name=".PaymentActivity"
+            android:label="@string/title_activity_payment" >
+        </activity>
+        <activity
+            android:name=".NotificationSettingActivity"
+            android:label="@string/title_activity_notification_setting" >
+        </activity>
+        <activity
+            android:name=".PrivacyActivity"
+            android:label="@string/title_activity_privacy" >
+        </activity>
+        <activity
+            android:name=".LocationServiceActivity"
+            android:label="@string/title_activity_location_service" >
+        </activity>
+        <activity
+            android:name=".LanguageActivity"
+            android:label="@string/title_activity_language" >
+        </activity>
     </application>
 
 </manifest>

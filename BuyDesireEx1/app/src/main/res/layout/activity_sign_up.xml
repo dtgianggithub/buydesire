@@ -16,6 +16,12 @@
         android:textColor="@color/black"
         />
 
+    <TextView
+        android:textColor="@color/red"
+        android:id="@+id/lblnotifysignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
@@ -55,6 +61,8 @@
                 android:background="@drawable/ic_login_camera"
                 />
 
+
+
         </LinearLayout>
 
 
@@ -67,8 +75,10 @@
         android:hint="Email Address (required)"
         android:focusable="true"
         android:id="@+id/txtEmailSignUp"
+        android:inputType="textEmailAddress"
         />
     <EditText
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +88,7 @@
 
 
     <Button
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/yellow"

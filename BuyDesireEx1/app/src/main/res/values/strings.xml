@@ -8,6 +8,7 @@
     <color name="gray">#ECECEC</color>
     <color name="focuseblue">#BFCAE6</color>
     <color name="black" >#000000</color>
+    <color name="red">#FE0000</color>
 
     <string-array name="memulist">
         <item>Add</item>
@@ -204,6 +205,15 @@
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="title_activity_view_nofitcation_activtiy">ViewNofitcationActivtiy</string>
     <string name="title_activity_save_desire">SaveDesireActivity</string>
+    <string name="title_activity_share_qrcode">ShareQRCode</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_shipping_billing">ShippingBillingActivity</string>
+    <string name="title_activity_payment">PaymentActivity</string>
+    <string name="title_activity_notification_setting">NotificationSettingActivity</string>
+    <string name="title_activity_privacy">PrivacyActivity</string>
+    <string name="title_activity_location_service">LocationServiceActivity</string>
+    <string name="title_activity_language">LanguageActivity</string>
 
 
 </resources>

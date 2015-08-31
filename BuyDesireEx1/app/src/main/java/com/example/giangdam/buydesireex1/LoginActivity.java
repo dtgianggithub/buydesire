@@ -90,11 +90,14 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
 
 
 
+    public static final String MYACCOUNT_SHAREPRE = "myaccountsharepreference";
+
     TextView lblSignUp, lblSignIn;
 
     String loginFB = "You had login with Facebook";
     String loginTW = "You had login with Twitter";
     String loginGP = "You had login with GooglePlus";
+    String loginMA = "You had login with BuyDesire Account";
 
 
 
@@ -122,11 +125,23 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
         accessToken = AccessToken.getCurrentAccessToken();
 
 
+        pref = getSharedPreferences(MYACCOUNT_SHAREPRE, MODE_PRIVATE);
+        long UserId = pref.getLong("My_User_Id", -1);
+
+
+
         pref = getSharedPreferences(TWITTER_SHAREPRE, MODE_PRIVATE);
         String _accesstokentwitter = pref.getString("ACCESS_TOKEN", "");
 
         pref = getSharedPreferences(GOOGLEPLUS_SHAREPRE, MODE_PRIVATE);
         String _sessionId = pref.getString("SESSION_ID", "");
+
+        if(UserId != -1){
+            typeLogin = 4;
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         if( !_sessionId.equals("")){
             typeLogin = 3;

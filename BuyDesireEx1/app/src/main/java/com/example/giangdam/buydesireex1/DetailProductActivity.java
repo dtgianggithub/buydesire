@@ -25,6 +25,8 @@ public class DetailProductActivity extends AppCompatActivity {
     TextView lblProductNameDetail,lblProductPriceDetail,lblProductCompanyDetail,lblDesireCountDetail,lblseemore,lblFeatures;
 
     ImageView imgProduct;
+
+    Desire mDesire;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class DetailProductActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("product_bundle");
-        Desire mDesire = (Desire) bundle.getSerializable("product");
+        mDesire = (Desire) bundle.getSerializable("product");
 
         lblProductCompanyDetail = (TextView)findViewById(R.id.lblProductCompanyDetail);
         lblProductNameDetail = (TextView)findViewById(R.id.lblProductNameDetail);
@@ -85,8 +87,6 @@ public class DetailProductActivity extends AppCompatActivity {
             lblProductPriceDetail.setText("POA");
             lblseemore.setText("See more from " + mDesire.getRetailerName());
             getSupportActionBar().setTitle(mDesire.getRetailerName());
-
-
         }
 
 
@@ -110,11 +110,26 @@ public class DetailProductActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()){
+            case R.id.detail_product_desires_detail_barcode:
+                //show activity
+                Intent intent = new Intent(this, ShareQRCode.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("product",mDesire );
+                intent.putExtra("product_bundle", bundle);
+                startActivity(intent);
+
+                break;
+            case R.id.detail_product_desires_detail_plus:
+                break;
+            case R.id.detail_product_desires_detail_recommend:
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
