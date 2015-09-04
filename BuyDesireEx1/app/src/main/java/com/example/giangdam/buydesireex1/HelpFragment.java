@@ -1,9 +1,11 @@
 package com.example.giangdam.buydesireex1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -31,6 +33,33 @@ public class HelpFragment extends android.support.v4.app.Fragment {
         myRecommendationsAdapter = new MyRecommendationsAdapter(getActivity(),R.layout.custom_list_recommendations,arrayListHelp);
         lvListHelp = (ListView)view.findViewById(R.id.lvListHelp);
         lvListHelp.setAdapter(myRecommendationsAdapter);
+
+
+        lvListHelp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent intentAbout = new Intent(getActivity(),AboutActivity.class);
+                        startActivity(intentAbout);
+                        break;
+                    case 1:
+                        Intent intentTermPolicies = new Intent(getActivity(),TermsPoliciesActivity.class);
+                        startActivity(intentTermPolicies);
+                        break;
+                    case 2:
+                        Intent intentFAQs = new Intent(getActivity(),FAQsActivity.class);
+                        startActivity(intentFAQs);
+                        break;
+                    case 3:
+                        Intent intentContactUs = new Intent(getActivity(),ContactUsActivity.class);
+                        startActivity(intentContactUs);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         return  view;
     }

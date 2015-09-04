@@ -133,6 +133,22 @@
             android:name=".LanguageActivity"
             android:label="@string/title_activity_language" >
         </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
+        <activity
+            android:name=".TermsPoliciesActivity"
+            android:label="@string/title_activity_terms_policies" >
+        </activity>
+        <activity
+            android:name=".FAQsActivity"
+            android:label="@string/title_activity_faqs" >
+        </activity>
+        <activity
+            android:name=".ContactUsActivity"
+            android:label="@string/title_activity_contact_us" >
+        </activity>
     </application>
 
 </manifest>

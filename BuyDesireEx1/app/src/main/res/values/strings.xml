@@ -216,4 +216,91 @@
     <string name="title_activity_language">LanguageActivity</string>
 
 
+    <string-array name="language">
+        <item>English</item>
+        <item>中国</item>
+    </string-array>
+    <string name="title_activity_about">AboutActivity</string>
+
+
+    <string name="about">BuyDesire is the best served with the in&#45;store shopping experience. People
+     are using BuyDesire to find and buy in&#45;store products they love. \n  \nFollow all of your favourite stores and people in one place to get a personallised
+        feed of what\'s trending, along with recommendations jst for you! \n \nWe bring your and endless stream
+        of the in&#45;store sensory experience, both popular and to hard items all from peple just like you.
+        \n \nUse BuyDesire to tag items you love while browsing in&#45;store, create multiple lists to share with friends, family or that
+        special person &#45; your choose what\'s meant to be kept secret.
+        \n \nWarning Label: Use with care.
+        \n \nBuyDesire is highly addictive and can be dangerous for those on a budget.
+    </string>
+    <string name="title_activity_terms_policies">TermsPoliciesActivity</string>
+
+    <string-array name="listtermpolicies">
+        <item>Term of Services</item>
+        <item>Privacy Policy</item>
+        <item>Security Policy</item>
+    </string-array>
+    <string name="title_activity_faqs">FAQsActivity</string>
+
+    <string name="faqsIntro">This is a shorlist of our most frequently questions. For
+    more information about BuyDesire or if you need support, please <a href="#">contact us</a>.
+    </string>
+
+    <string name="howdoiusebuydesire">BuyDesire is a mobile app that connects you to the brands you know and love so
+        you can enjoy exclusively tailored offer and promotions directly to items you
+        have scanned in&#45;store, it will be added to your MyDesires List. \n \nOnce an item has been added to My Desires,
+         you will be able to view all of the latest product and pricing information that may include customer reviews and videos, you\'ll
+         be able to share your desires with friends and family for their feedback. \n \nTo place an order
+        simply add the items from your \"MyDesires\" list to \"Shopping Bag\" and click \"Proceed to Checkout\".
+         When an order is confirmed, you will receive an order confirmation email and In App in the \"Purchases\" tab so
+        you can keep track of all of your purchases through BuyDesire.
+    </string>
+
+
+    <string name="whathappensaffteriorder">When your order is confirmed, the retailer you purchased the items from will be notified inmediately. Depending
+        on what delivery method you selected during Checkout, your items will either be made abailable for collection in&#45;store
+        or will be packaged and shipped to your address by the retailer. \n \nTo check order delivery times
+        for each of our participating retailers, please visit the BuyDesire website <a href="#">www.buydesire.com</a>.
+    </string>
+
+    <string name="whenwillireceivemyorder">The retailer you purchased the items from is responible for fulliling and shipping your order. Deliveries will be packaged and shipped
+        within the time you selected during Checkout. \n \nTo check the status of your order, please contact the Customer
+        Service Centre of the retailer you placed the order through. Contact details for all participating retailers anc be found
+         by visiting the BuyDesire website <a href="#">www.buydesire.com</a>.
+    </string>
+
+    <string name="howdoireturnanitem">Our participating retailers want to ensure you are completely satisfied with your orders and understand sometimes an item may
+        not be suitable. BuyDesire Members may exchange or return full&#45;priced merchandise in its original condition, with
+        appropriate barcodes and proof of purchase to the retailer you placed the order through. \n \nFor more details
+        on how to return or exchange items through particitpating retailers, please visit the BuyDesire website  <a href="#">www.buydesire.com</a>.
+    </string>
+
+    <string name="aremydetailssafe">BuyDesire takes the security of your sensitive customer information seriously. We have taken appropriate security measures
+        including procedural, technical and administrative to help safeguard your personal information. All customer information is located on a secure
+        server behind a firewall and is not directly connected to the internet. The intergrity of this firewall is tested regularly and it meets all
+        recognised industry standards. \n \nBuyDesire use 128&#45;bit Secure Sockets Layer(SSL) encryption technology in the
+        transmission of your sensitive personal information between your system and ours that provides security
+        while information is being trasmitted over the Internet or through a mobile device. \n \nTo check the security of
+        your coneection during checkout, look for the unbroken key or closed look at the bottom of your brower window.
+         this indicates SSL is active. We want you to feel confident purchasing items through BuyDesire. However, you should be aware that 100% security is not always
+        possible and although we take steps to secure your information, we do not promise, and you should not expect, that your personal
+        informatin or orther communications will wlways remain secure. Should any event occur when your sensitive
+        personal information is compromised, we will notify you immediately. \n \nPlacement of any orders or submisson
+        of enquiries at BuyDesire is taken as acceptance of the above Security guidelines. \n \nIf you have nay concerns
+        regarding our Security policy, lease contact our Customer SUpport Centre <a href="#">welhello@buydesire.com</a>.
+    </string>
+    <string name="title_activity_contact_us">ContactUsActivity</string>
+
+    <string-array name="contactus">
+        <item>Email</item>
+        <item>Post</item>
+        <item>Call</item>
+        <item>Tweet</item>
+        <item>Rate Us</item>
+    </string-array>
+
+
+
+
+
+
 </resources>

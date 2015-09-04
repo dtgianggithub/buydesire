@@ -12,49 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:background="@color/white"
-            android:gravity="center_vertical"
+        <ListView
+            android:id="@+id/lvLanguage"
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:text="English"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <ImageView
-                android:layout_marginRight="20dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/ic_item_selected"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_marginTop="2dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
-
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:text="中国"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageView
-                android:layout_marginRight="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-
-        </RelativeLayout>
+        </ListView>
 
     </LinearLayout>
 </LinearLayout>

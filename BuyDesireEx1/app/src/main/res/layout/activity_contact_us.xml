@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context="com.example.giangdam.buydesireex1.ContactUsActivity">
+
+    <include android:id="@+id/app_bar_contactus"  layout="@layout/app_bar_storeinfo" />
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lvContactUs"
+            ></ListView>
+    </LinearLayout>
+</LinearLayout>

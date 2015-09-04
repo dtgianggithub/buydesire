@@ -4,13 +4,20 @@
     android:background="@color/white"
     android:layout_height="50dp">
 
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/imgImageContactUs"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
     <TextView
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/imgImageContactUs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtrecommendations"
+        android:id="@+id/lblContactUs"
         />
     <ImageView
         android:layout_centerVertical="true"
